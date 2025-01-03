@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import moreSee from "../../assets/images/moreSee.png";
 
 const SidebarContainer = styled.div`
   width: 180px;
@@ -15,21 +16,50 @@ const SidebarContainer = styled.div`
 const SidebarItem = styled.div`
   width: 180px;
   height: 53px;
+  margin-bottom: 15px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+`
+
+const SidebarMenu = styled.div` 
   color: #EFEEDF;
   align-items: center;
-  margin-bottom: 15px;
   font-size: 20px;
   font-weight: bold;
+`
+
+const MoreSeeImg = styled.img`
+  width: 16px;
+  height: 16px;
+  position: relative;
+  right: 0;
+  margin-top: 5px;
 `
 
 const SideBar: React.FC = () => {
   return (
     <SidebarContainer>
-      <SidebarItem>가게현황</SidebarItem>
-      <SidebarItem>가게관리</SidebarItem>
-      <SidebarItem>메뉴</SidebarItem>
-      <SidebarItem>광고</SidebarItem>
-      <SidebarItem>혜택.쿠폰</SidebarItem>
+      <SidebarItem>
+        <SidebarMenu>가게현황</SidebarMenu>
+        <MoreSeeImg src={moreSee} />
+      </SidebarItem>
+      <SidebarItem>
+        <SidebarMenu>가게관리</SidebarMenu>
+        <MoreSeeImg src={moreSee} />
+      </SidebarItem>
+      <SidebarItem>
+        <SidebarMenu>메뉴</SidebarMenu>
+        <MoreSeeImg src={moreSee} />
+      </SidebarItem>
+      <SidebarItem>
+        <SidebarMenu>광고</SidebarMenu>
+        <MoreSeeImg src={moreSee} />
+      </SidebarItem>
+      <SidebarItem>
+        <SidebarMenu>혜택.쿠폰</SidebarMenu>
+        <MoreSeeImg src={moreSee} />
+      </SidebarItem>
     </SidebarContainer>
   )
 }
