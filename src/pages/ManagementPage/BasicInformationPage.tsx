@@ -258,7 +258,7 @@ const ColumnContainer = styled.div`
 `;
 
 const InformationCardContainer = styled.div`
-  width: 100%;
+  width: 550px;
   background-color: #171714;
   color: #fff;
   display: flex;
@@ -316,6 +316,7 @@ const SubTitle = styled.div`
   font-size: 20px;
   font-weight: 600;
 `;
+
 const ExplainTitle = styled.div`
   color: #a8a7a1;
   font-size: 15px;
@@ -360,6 +361,7 @@ const InfoBox = styled.div`
   padding: 8px 12px;
   margin-right: 8px;
 `;
+
 const Camera = styled.img`
   width: 25px;
   height: 20px;
