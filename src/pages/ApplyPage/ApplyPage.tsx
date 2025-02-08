@@ -4,7 +4,7 @@ import { useApplyStore } from "../../stores/apply";
 import uploadImg from "../../assets/images/upload.png";
 import moreSee from "../../assets/images/moreSee.png";
 import check from "../../assets/images/check.png";
-import { businessNumberCheckHandler } from "../../axios/business";
+import { businessNumberCheckHandler } from "../../apis/business";
 
 type ApplyStoreState = ReturnType<typeof useApplyStore.getState>;
 

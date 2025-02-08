@@ -4,7 +4,7 @@ import styled from "styled-components";
 const FooterContainer = styled.footer`
   text-align: center;
   padding: 1rem;
-  
+  margin-top: 150px;
 `;
 
 const Text = styled.div`
