@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import closeImage from "../../../assets/images/close.png";
-import cameraImg from "../../../assets/images/camera.png"
+import cameraImg from "../../../assets/images/camera.png";
+import uploadImg from "../../../assets/images/upload.png";
 
 interface ImageEditModalProps {
   isOpen: boolean;
@@ -75,7 +76,6 @@ const ImageEditModal: React.FC<ImageEditModalProps> = ({ isOpen, onClose, onSave
                   />
                 </ImagePlaceholder>
               ))}
-              {/* ✅ 5개 이하일 경우 빈 ImagePlaceholder 추가 */}
               {Array.from({ length: MAX_PICTURES - images.length }).map((_, index) => (
                 <ImagePlaceholder key={`empty-${index}-${Math.random()}`} />
               ))}
@@ -94,7 +94,8 @@ const ImageEditModal: React.FC<ImageEditModalProps> = ({ isOpen, onClose, onSave
         </ImageContainer>
 
         <FileUploadButton htmlFor="file-upload">
-          📂 파일 첨부하기
+          <UploadImg src={uploadImg} />
+          파일 첨부하기
         </FileUploadButton>
         <HiddenFileInput id="file-upload" type="file" multiple onChange={handleFileChange} />
 
@@ -218,6 +219,12 @@ const FileUploadButton = styled.label`
   justify-content: center;
   margin-bottom: 20px;
 `;
+
+const UploadImg = styled.img`
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+`
 
 const HiddenFileInput = styled.input`
   display: none;
