@@ -2,93 +2,6 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import closeImage from "../../../assets/images/close.png"; // 닫기 버튼 이미지
 
-const Overlay = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.6);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1000;
-`;
-
-const Modal = styled.div`
-  background: #111;
-  padding: 40px;
-  border-radius: 12px;
-  width: 600px;
-  height: 587px;
-  text-align: left;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`;
-
-const CloseButton = styled.img`
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  width: 24px;
-  height: 24px;
-  cursor: pointer;
-`;
-
-const Title = styled.h2`
-  font-size: 24px;
-  font-weight: bold;
-  color: #EFEEDF;
-  margin-bottom: 30px;
-  margin-left: 50px;
-  margin-top: 30px;
-  align-self: flex-start;
-`;
-
-const SectionTitle = styled.div`
-  font-size: 16px;
-  font-weight: bold;
-  color: #FFFFFF;
-  margin-top: 20px;
-  margin-bottom: 10px;
-  margin-left: 50px;
-  align-self: flex-start;
-`;
-
-const TagContainer = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-left: 50px;
-  align-self: flex-start;
-`;
-
-const Tag = styled.div<{ selected: boolean }>`
-  padding: 8px 12px;
-  font-size: 14px;
-  background: ${({ selected }) => (selected ? "#FFF" : "#323230")};
-  color: ${({ selected }) => (selected ? "#000" : "#FFF")};
-  border-radius: 20px;
-  cursor: pointer;
-`;
-
-const SaveButton = styled.button`
-  background: #EFD800;
-  border: none;
-  padding: 12px;
-  width: 380px;
-  height: 56px;
-  margin-top: 70px;
-  border-radius: 12px;
-  cursor: pointer;
-  font-size: 16px;
-  color: #171714;
-  font-weight: bold;
-  box-sizing: border-box;
-`;
-
 interface ServiceModalProps {
   isOpen: boolean;
   onClose: () => void;
@@ -186,3 +99,90 @@ const ServiceEditModal: React.FC<ServiceModalProps> = ({ isOpen, onClose, select
 
 export default ServiceEditModal;
 export {}
+
+const Overlay = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+`;
+
+const Modal = styled.div`
+  background: #111;
+  padding: 40px;
+  border-radius: 12px;
+  width: 600px;
+  height: 587px;
+  text-align: left;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+const CloseButton = styled.img`
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+`;
+
+const Title = styled.h2`
+  font-size: 24px;
+  font-weight: bold;
+  color: #efeedf;
+  margin-bottom: 30px;
+  margin-left: 50px;
+  margin-top: 30px;
+  align-self: flex-start;
+`;
+
+const SectionTitle = styled.div`
+  font-size: 16px;
+  font-weight: bold;
+  color: #ffffff;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  margin-left: 50px;
+  align-self: flex-start;
+`;
+
+const TagContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-left: 50px;
+  align-self: flex-start;
+`;
+
+const Tag = styled.div<{ selected: boolean }>`
+  padding: 8px 12px;
+  font-size: 14px;
+  background: ${({ selected }) => (selected ? "#FFF" : "#323230")};
+  color: ${({ selected }) => (selected ? "#000" : "#FFF")};
+  border-radius: 20px;
+  cursor: pointer;
+`;
+
+const SaveButton = styled.button`
+  background: #efd800;
+  border: none;
+  padding: 12px;
+  width: 380px;
+  height: 56px;
+  margin-top: 70px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 16px;
+  color: #171714;
+  font-weight: bold;
+  box-sizing: border-box;
+`;

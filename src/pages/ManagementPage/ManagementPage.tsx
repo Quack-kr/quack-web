@@ -3,6 +3,7 @@ import styled from "styled-components";
 import SideBar from "../../components/common/SideBar";
 import StoreList from "../../components/common/StoreList";
 import BasicInformationPage from "./BasicInformationPage";
+import BusinessInformationPage from "./BusinessInformationPage";
 
 const ManagementPage: React.FC = () => {
   const [activeTab, setActiveTab] = useState("기본정보");
@@ -34,7 +35,7 @@ const ManagementPage: React.FC = () => {
           {activeTab === "기본정보" ? (
             <BasicInformationPage />
           ) : (
-            <BasicInformationPage />
+            <BusinessInformationPage />
           )}
         </InformationSection>
       </Conatiner>
