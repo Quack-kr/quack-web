@@ -38,6 +38,14 @@ const ManagementPage: React.FC = () => {
   description: "",
   service_and_information: ["고기 구워드려요", "이용시간 제한있어요"]
   });
+
+  useEffect(() => {
+    if (!isImageModalOpen) return;
+    setRestaurant((prev) => ({
+        ...prev,
+        pictures: restaurant.pictures // 기존 images 상태를 동기화
+    }));
+  }, [restaurant.pictures, isImageModalOpen]);
   
   const handleSave = (type: string, newValue: string, reason?: string) => {
    setRestaurant((prev) => ({
@@ -133,21 +141,22 @@ const ManagementPage: React.FC = () => {
                 <InfoBoxContainer>
                   {restaurant.pictures.length > 0
                     ? (restaurant.pictures.map((pic, index) => (
-                      <img
-                        key={index}
-                        src={pic}
-                        alt={`업체사진-${index}`}
-                        style={{ width: 60, height: 60, borderRadius: 8 }}
-                      />
-                    ))
-                  ): (
+                      <ImagePlaceholder key={pic}>
+                        <img
+                          src={pic}
+                          alt={`업체사진-${index}`}
+                          style={{ width: 80, height: 80, borderRadius: 8 }}
+                          />
+                      </ImagePlaceholder>
+                    ))                  
+                    ) : (
                       <>
                         <ImagePlaceholder>
                           <Camera src={cameraImg} />
                           <Explain className="camera">대표이미지</Explain>
                         </ImagePlaceholder>
                         {Array.from({ length: MAX_PICTURES - 1 }).map((_, index) => (
-                        <ImagePlaceholder key={index} />
+                        <ImagePlaceholder key={`empty-${index}-${Math.random()}`} />
                         ))}
                       </>
                   )}

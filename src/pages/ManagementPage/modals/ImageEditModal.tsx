@@ -3,6 +3,115 @@ import styled from "styled-components";
 import closeImage from "../../../assets/images/close.png";
 import cameraImg from "../../../assets/images/camera.png"
 
+interface ImageEditModalProps {
+  isOpen: boolean;
+  onClose: () => void;
+  onSave: (images: string[]) => void;
+  existingImages: string[]; // 기존 저장된 이미지
+}
+
+const ImageEditModal: React.FC<ImageEditModalProps> = ({ isOpen, onClose, onSave, existingImages }) => {
+  const [images, setImages] = useState<string[]>(existingImages ?? []);
+
+  const MAX_PICTURES = 5;
+
+  // ✅ 모달이 열릴 때 기존 이미지 동기화
+  useEffect(() => {
+    if (isOpen) {
+      setTimeout(() => {
+        setImages(existingImages ?? []);
+      }, 0); // 즉시 반영
+    }
+  }, [isOpen, existingImages]);
+
+  // ✅ 기존 URL을 해제하여 메모리 누수 방지
+  useEffect(() => {
+    return () => {
+      images.forEach((img) => URL.revokeObjectURL(img));
+    };
+  }, [images]);
+
+  // ✅ 파일 업로드 핸들러
+  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const files = event.target.files;
+    if (!files) return;
+
+    const newImages = Array.from(files).map((file) => URL.createObjectURL(file));
+    
+    setImages((prev) => [...prev, ...newImages].slice(0, MAX_PICTURES));
+  };
+
+  // ✅ 파일 제거 핸들러
+  const handleRemoveImage = (indexToRemove: number) => {
+    setImages((prev) => prev.filter((_, index) => index !== indexToRemove));
+  };
+
+ // ✅ 저장 버튼을 눌러야만 ManagementPage에 반영되도록 변경
+  const handleSave = () => {
+    onSave(images); // ✅ 이제 여기서만 onSave 실행됨
+    onClose();
+  };
+
+  // ✅ X 버튼 클릭 시 변경사항을 저장하지 않도록 변경
+  const handleClose = () => {
+    setImages(existingImages); // ✅ 기존 이미지로 되돌림
+    onClose();
+  };
+
+  if (!isOpen) return null;
+
+  return (
+    <Overlay>
+      <Modal>
+        <CloseButton src={closeImage} onClick={handleClose} />
+        <RowContainer>
+          <Title>업체사진</Title>
+          <SubText>최대 5장</SubText>
+        </RowContainer>
+        <ImageContainer>
+          {images.length > 0 ? (
+            <>
+              {images.map((pic, index) => (
+                <ImagePlaceholder key={pic} onClick={() => handleRemoveImage(index)}>
+                  <img
+                    src={pic}
+                    alt={`업체사진-${index}`}
+                    style={{ width: 80, height: 80, borderRadius: 8, objectFit: "cover" }}
+                  />
+                </ImagePlaceholder>
+              ))}
+              {/* ✅ 5개 이하일 경우 빈 ImagePlaceholder 추가 */}
+              {Array.from({ length: MAX_PICTURES - images.length }).map((_, index) => (
+                <ImagePlaceholder key={`empty-${index}-${Math.random()}`} />
+              ))}
+            </>
+          ) : (
+            <>
+              <ImagePlaceholder>
+                <Camera src={cameraImg} />
+                <Explain className="camera">대표이미지</Explain>
+              </ImagePlaceholder>
+              {Array.from({ length: MAX_PICTURES - 1 }).map((_, index) => (
+                <ImagePlaceholder key={`empty-${index}-${Math.random()}`} />
+              ))}
+            </>
+          )}
+        </ImageContainer>
+
+        <FileUploadButton htmlFor="file-upload">
+          📂 파일 첨부하기
+        </FileUploadButton>
+        <HiddenFileInput id="file-upload" type="file" multiple onChange={handleFileChange} />
+
+        <SaveButton onClick={handleSave}>저장하기</SaveButton>
+      </Modal>
+    </Overlay>
+  );
+};
+
+export default ImageEditModal;
+export { }
+
 const Overlay = styled.div`
   position: fixed;
   top: 0;
@@ -132,103 +241,3 @@ const SaveButton = styled.button`
   font-weight: bold;
   margin-top: 8%;
 `;
-
-interface ImageEditModalProps {
-  isOpen: boolean;
-  onClose: () => void;
-  onSave: (images: string[]) => void;
-  existingImages: string[]; // 기존 저장된 이미지
-}
-
-const ImageEditModal: React.FC<ImageEditModalProps> = ({ isOpen, onClose, onSave, existingImages }) => {
-  const [images, setImages] = useState<string[]>(existingImages ?? []);
-
-  const MAX_PICTURES = 5;
-
-  // ✅ 모달이 열릴 때 기존 이미지 동기화
-  useEffect(() => {
-    if (isOpen) {
-      setImages(existingImages ?? []);
-    }
-  }, [isOpen, existingImages]);
-
-  // ✅ 기존 URL을 해제하여 메모리 누수 방지
-  useEffect(() => {
-    return () => {
-      images.forEach((img) => URL.revokeObjectURL(img));
-    };
-  }, [images]);
-
-  // ✅ 파일 업로드 핸들러
-  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const files = event.target.files;
-    if (!files) return;
-
-    const newImages = Array.from(files).map((file) => URL.createObjectURL(file));
-    
-    // 최대 5장까지만 업로드 가능
-    setImages((prev) => [...prev, ...newImages].slice(0, 5));
-  };
-
-  //// ✅ 대표 이미지 변경
-  //const handleMainImageChange = (index: number) => {
-  //  if (index === 0) return; // 이미 대표 이미지라면 변경하지 않음
-  //  setImages((prev) => {
-  //    const updatedImages = [...prev];
-  //    const mainImage = updatedImages.splice(index, 1)[0]; // 선택한 이미지를 제거
-  //    updatedImages.unshift(mainImage); // 대표 이미지로 이동
-  //    return updatedImages;
-  //  });
-  //};
-
-  const handleSave = () => {
-    onSave(images);
-    onClose();
-  };
-
-  if (!isOpen) return null;
-
-  return (
-    <Overlay>
-      <Modal>
-        <CloseButton src={closeImage} onClick={onClose} />
-        <RowContainer>
-          <Title>업체사진</Title>
-          <SubText>최대 5장</SubText>
-        </RowContainer>
-        <ImageContainer>
-          {existingImages.length > 0
-                    ? (existingImages.map((pic, index) => (
-                      <img
-                        key={index}
-                        src={pic}
-                        alt={`업체사진-${index}`}
-                        style={{ width: 60, height: 60, borderRadius: 8 }}
-                      />
-                    ))
-                  ): (
-                      <>
-                        <ImagePlaceholder>
-                          <Camera src={cameraImg} />
-                          <Explain className="camera">대표이미지</Explain>
-                        </ImagePlaceholder>
-                        {Array.from({ length: MAX_PICTURES - 1 }).map((_, index) => (
-                        <ImagePlaceholder key={index} />
-                        ))}
-                      </>
-                  )}
-        </ImageContainer>
-
-        <FileUploadButton htmlFor="file-upload">
-          📂 파일 첨부하기
-        </FileUploadButton>
-        <HiddenFileInput id="file-upload" type="file" multiple onChange={handleFileChange} />
-
-        <SaveButton onClick={handleSave}>저장하기</SaveButton>
-      </Modal>
-    </Overlay>
-  );
-};
-
-export default ImageEditModal;
-export {}
