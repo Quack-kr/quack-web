@@ -18,18 +18,9 @@ const ImageEditModal: React.FC<ImageEditModalProps> = ({ isOpen, onClose, onSave
   // ✅ 모달이 열릴 때 기존 이미지 동기화
   useEffect(() => {
     if (isOpen) {
-      setTimeout(() => {
-        setImages(existingImages ?? []);
-      }, 0); // 즉시 반영
+      setImages(existingImages ?? []);
     }
   }, [isOpen, existingImages]);
-
-  // ✅ 기존 URL을 해제하여 메모리 누수 방지
-  useEffect(() => {
-    return () => {
-      images.forEach((img) => URL.revokeObjectURL(img));
-    };
-  }, [images]);
 
   // ✅ 파일 업로드 핸들러
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -43,18 +34,22 @@ const ImageEditModal: React.FC<ImageEditModalProps> = ({ isOpen, onClose, onSave
 
   // ✅ 파일 제거 핸들러
   const handleRemoveImage = (indexToRemove: number) => {
-    setImages((prev) => prev.filter((_, index) => index !== indexToRemove));
+    setImages((prev) => {
+      const updatedImages = prev.filter((_, index) => index !== indexToRemove);
+    
+      return [...updatedImages]; // 새로운 배열 반환하여 React 변경 감지
+    });
   };
 
- // ✅ 저장 버튼을 눌러야만 ManagementPage에 반영되도록 변경
+ // 저장 버튼을 눌러야만 ManagementPage에 반영되도록 변경
   const handleSave = () => {
-    onSave(images); // ✅ 이제 여기서만 onSave 실행됨
+    onSave(images); // 이제 여기서만 onSave 실행됨
     onClose();
   };
 
-  // ✅ X 버튼 클릭 시 변경사항을 저장하지 않도록 변경
+  // X 버튼 클릭 시 변경사항을 저장하지 않도록 변경
   const handleClose = () => {
-    setImages(existingImages); // ✅ 기존 이미지로 되돌림
+    setImages([...existingImages]);
     onClose();
   };
 
@@ -72,7 +67,7 @@ const ImageEditModal: React.FC<ImageEditModalProps> = ({ isOpen, onClose, onSave
           {images.length > 0 ? (
             <>
               {images.map((pic, index) => (
-                <ImagePlaceholder key={pic} onClick={() => handleRemoveImage(index)}>
+                <ImagePlaceholder key={index} onClick={() => handleRemoveImage(index)}>
                   <img
                     src={pic}
                     alt={`업체사진-${index}`}
