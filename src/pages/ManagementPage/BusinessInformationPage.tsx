@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useRestaurantStore } from "../../stores/restaurant";
-import { ko } from "date-fns/locale";
 import OperationTimeEditModal from "./modals/OperationTimeEditModal";
 import ClosedEditModal from "./modals/ClosedEditModal";
+import StateEditModal from "./modals/StateEditModal";
 
 // ✅ 00:00 시간을 반환하는 함수
 const getDefaultTime = () => {
@@ -19,7 +18,8 @@ const BusinessInformationPage: React.FC = () => {
     useState(false);
   const [isCloseModalOpen, setIsCloseModalOpen] =
     useState(false);
-
+  const [isStateModalOpen, setIsStateModalOpen] = useState(false);
+  
   //임시 데이터
   const [restaurant, setRestaurant] = useState<{
     name: string;
@@ -71,19 +71,6 @@ const BusinessInformationPage: React.FC = () => {
     regular_closed: [],
   });
 
-  // ✅ 정기휴무 요일 선택 핸들러
-  const toggleClosedDay = (day: string) => {
-    setRestaurant((prev) => {
-      const isClosed = prev.regular_closed.includes(day);
-      return {
-        ...prev,
-        regular_closed: isClosed
-          ? prev.regular_closed.filter((d) => d !== day) // 선택 해제
-          : [...prev.regular_closed, day], // 선택 추가
-      };
-    });
-  };
-
   return (
     <InformationCardContainer>
       <InformationCard>
@@ -97,8 +84,19 @@ const BusinessInformationPage: React.FC = () => {
             ))}
           </InfoBoxContainer>
         </Information>
-        <EditBtn>수정하기</EditBtn>
+        <EditBtn onClick={() => setIsStateModalOpen(true)}>수정하기</EditBtn>
       </InformationCard>
+      <StateEditModal
+        isOpen={isStateModalOpen}
+        onClose={() => setIsStateModalOpen(false)}
+        states={restaurant.business_state}
+        onSave={(newState) => {
+          setRestaurant((prev) => ({
+            ...prev,
+            business_state: newState,
+          }));
+        }}
+      />
       <Divider />
       <InformationCard>
         <Information>
@@ -169,7 +167,6 @@ const BusinessInformationPage: React.FC = () => {
               <DayBox
                 key={day}
                 selected={restaurant.regular_closed.includes(day)}
-                //onClick={() => toggleClosedDay(day)}
               >
                 {day}
               </DayBox>
