@@ -23,3 +23,6 @@
    |-- utils => util 파일 관리 <br />
    |-- apis => api 목록들  <br />
    |-- assets => 프로젝트에 쓸 font, image 등 <br />**
+
+## GHCR_PAT
+ - API 키 별도 발급 해야함
