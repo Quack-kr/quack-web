@@ -19,10 +19,10 @@ jobs:
 
       - name: Build Docker image
         run: |
-          IMAGE_NAME=ghcr.io/Quack-kr/Quack-Web
+          IMAGE_NAME=ghcr.io/quack-kr/quack-Web
           docker build -t $IMAGE_NAME:latest .
 
       - name: Push Docker image to GHCR
         run: |
-          IMAGE_NAME=ghcr.io/Quack-kr/Quack-Web
+          IMAGE_NAME=ghcr.io/quack-kr/quack-Web
           docker push $IMAGE_NAME:latest
