@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - master
+      - feat/ci
 
 jobs:
   build-and-push:
