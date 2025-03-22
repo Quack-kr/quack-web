@@ -1,8 +1,9 @@
 FROM node:16 AS builder
 WORKDIR /app
-ENV NODE_ENV=production
+# ENV NODE_ENV=production
 COPY package.json package-lock.json ./
-RUN npm ci
+RUN npm install
+# RUN npm ci
 COPY . .
 RUN npm run build
 
