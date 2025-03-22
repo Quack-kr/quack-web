@@ -26,3 +26,4 @@
 
 ## GHCR_PAT
  - API 키 별도 발급 해야함
+ - https://github.com/settings/tokens
