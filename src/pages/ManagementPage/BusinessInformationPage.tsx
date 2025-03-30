@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import "react-datepicker/dist/react-datepicker.css";
-import { useRestaurantStore } from "../../stores/restaurant";
 import OperationTimeEditModal from "./modals/OperationTimeEditModal";
 import ClosedEditModal from "./modals/ClosedEditModal";
 import StateEditModal from "./modals/StateEditModal";
