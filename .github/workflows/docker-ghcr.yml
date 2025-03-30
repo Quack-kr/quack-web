@@ -1,0 +1,28 @@
+name: Upload Docker image to GHCR
+
+on:
+  push:
+    branches:
+      - master
+      - feat/ci
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Log in to GitHub Container Registry
+        run: echo "${{ secrets.GHCR_PAT }}" | docker login ghcr.io -u $GITHUB_ACTOR --password-stdin
+
+      - name: Build Docker image
+        run: |
+          IMAGE_NAME=ghcr.io/quack-kr/quack-web
+          docker build -t $IMAGE_NAME:latest .
+
+      - name: Push Docker image to GHCR
+        run: |
+          IMAGE_NAME=ghcr.io/quack-kr/quack-web
+          docker push $IMAGE_NAME:latest
