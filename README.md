@@ -1,3 +1,6 @@
+## 🕊️ Branch Naming Convention
+> "이슈 번호(Issue number)-feat-기능 내용(feature details)" ex) 1-feat-social_login
+
 ## 📍 Commit Convention
 |**Type**|설명|
 |:--:|:--:|
