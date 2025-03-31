@@ -1,6 +1,20 @@
 import { create } from "zustand";
 
-interface CategoryState{
+import chicken from "../assets/images/category-icons/chicken.png";
+import pizza from "../assets/images/category-icons/pizza.png";
+import burger from "../assets/images/category-icons/burger.png";
+import chinese from "../assets/images/category-icons/chinese.png";
+import asian from "../assets/images/category-icons/asian.png";
+import sushi from "../assets/images/category-icons/sushi.png";
+import soup from "../assets/images/category-icons/soup.png";
+import snack from "../assets/images/category-icons/snack.png";
+import jokbal from "../assets/images/category-icons/jokbal.png";
+import meat from "../assets/images/category-icons/meat.png";
+import korean from "../assets/images/category-icons/korean.png";
+import japanese from "../assets/images/category-icons/japanese.png";
+import western from "../assets/images/category-icons/western.png";
+
+interface CategoryState {
   categories: string[];
   setCategories: (categories: string[]) => void;
   categoryIcons: { [key: string]: string };
@@ -10,18 +24,18 @@ export const useCategoryStore = create<CategoryState>((set) => ({
   categories: [],
   setCategories: (categories) => set({ categories }),
   categoryIcons: {
-    "치킨":   require("../assets/images/category-icons/chicken.png"),
-    "피자":   require("../assets/images/category-icons/pizza.png"),
-    "햄버거": require("../assets/images/category-icons/burger.png"),
-    "중식":   require("../assets/images/category-icons/chinese.png"),
-    "아시안": require("../assets/images/category-icons/asian.png"),
-    "초밥":   require("../assets/images/category-icons/sushi.png"),
-    "국밥":   require("../assets/images/category-icons/soup.png"),
-    "분식":   require("../assets/images/category-icons/snack.png"),
-    "족발":   require("../assets/images/category-icons/jokbal.png"),
-    "고기":   require("../assets/images/category-icons/meat.png"),
-    "한식":   require("../assets/images/category-icons/korean.png"),
-    "일식":   require("../assets/images/category-icons/japanese.png"),
-    "양식":   require("../assets/images/category-icons/western.png"),
+    "치킨": chicken,
+    "피자": pizza,
+    "햄버거": burger,
+    "중식": chinese,
+    "아시안": asian,
+    "초밥": sushi,
+    "국밥": soup,
+    "분식": snack,
+    "족발": jokbal,
+    "고기": meat,
+    "한식": korean,
+    "일식": japanese,
+    "양식": western,
   },
 }));
