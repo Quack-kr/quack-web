@@ -80,7 +80,7 @@ const InformationSection = styled.div`
 `;
 
 const Divider = styled.div`
-  width: 100%;
+  width: 1050px;
   border: 1px solid #525250;
   margin-top: 20px;
   margin-left: 40px;

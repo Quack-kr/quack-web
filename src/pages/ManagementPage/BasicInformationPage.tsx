@@ -245,7 +245,7 @@ const BasicInformationPage: React.FC = () => {
 export default BasicInformationPage;
 
 const Divider = styled.div`
-  width: 100%;
+  width: 550px;
   border: 1px solid #525250;
   margin-top: 20px;
   margin-left: 40px;
@@ -265,7 +265,7 @@ const InformationCardContainer = styled.div`
   flex-direction: column;
 `;
 const InformationCard = styled.div`
-  width: 100%;
+  width: 550px;
   display: flex;
   flex-direction: row;
   margin-top: 30px;
@@ -287,7 +287,7 @@ const CategoryBox = styled.div`
   height: 50px;
   background: #222;
   color: white;
-  border-radius: 50%;
+  border-radius: 25px;
   justify-content: center;
   font-size: 14px;
   margin-right: 10px;

@@ -87,8 +87,8 @@ const Overlay = styled.div`
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   background: rgba(0, 0, 0, 0.6);
   display: flex;
   align-items: center;
@@ -158,7 +158,7 @@ const WeekContainer = styled.div`
 const DayBox = styled.div<{ selected: boolean; disabled?: boolean }>`
   width: 40px;
   height: 40px;
-  border-radius: 50%;
+  border-radius: 20px;
   display: flex;
   justify-content: center;
   align-items: center;

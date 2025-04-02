@@ -282,7 +282,7 @@ const BreakHours: React.FC<{ start: string; end: string }> = ({
 
 // ✅ 스타일 정의
 const Divider = styled.div`
-  width: 100%;
+  width: 550px;
   border: 1px solid #525250;
   margin-top: 20px;
   margin-left: 40px;
@@ -297,7 +297,7 @@ const InformationCardContainer = styled.div`
 `;
 
 const InformationCard = styled.div`
-  width: 100%;
+  width: 550px;
   display: flex;
   flex-direction: row;
   margin-top: 30px;
@@ -388,7 +388,7 @@ const DifferentContainer = styled.div`
 `;
 
 const DayInfo = styled.div`
-  width: 100%;
+  width: 550px;
   height: 20px;
   display: flex;
   flex-direction: row;
@@ -416,7 +416,7 @@ const WeekContainer = styled.div`
 const DayBox = styled.div<{ selected: boolean }>`
   width: 40px;
   height: 40px;
-  border-radius: 50%;
+  border-radius: 20px;
   display: flex;
   justify-content: center;
   align-items: center;

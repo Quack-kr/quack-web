@@ -4,7 +4,7 @@ import moreSee from "../../assets/images/moreSee.png";
 
 const SidebarContainer = styled.div`
   width: 180px;
-  height: 100%;
+  height: 800px;
   display: flex;
   flex-direction: column;
   padding-top: 50px;

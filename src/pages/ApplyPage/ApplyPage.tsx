@@ -212,7 +212,6 @@ const ApplySubTitle = styled.div`
 const FormContainer = styled.form`
   display: flex;
   flex-direction: column;
-  width: 100%;
   max-width: 400px;
   margin-top: 50px;
 `;
@@ -230,7 +229,6 @@ const Label = styled.label`
 `
 
 const Input = styled.input`
-  width: 100%;
   height: 60px;
   padding: 10px;
   border-radius: 5px;
@@ -257,7 +255,6 @@ const Input = styled.input`
 const FileUploadBox = styled.label`
   display: flex;
   align-items: center;
-  width: 100%;
   height: 60px;
   padding: 10px;
   border-radius: 5px;
@@ -280,7 +277,6 @@ const FileUploadBox = styled.label`
     top: 0;
     left: 0;
     width: 100px;
-    height: 100%;
     opacity: 0;
     cursor: pointer;
   }
@@ -293,7 +289,6 @@ const UploadImg = styled.img`
 `
 
 const SubmitBtn = styled.button`
-  width: 100%;
   height: 60px;
   display: flex;
   justify-content: center;
@@ -310,7 +305,6 @@ const SubmitBtn = styled.button`
 `
 
 const AgreeBtn = styled.button`
-  width: 100%;
   height: 60px;
   display: flex;
   align-items: center;

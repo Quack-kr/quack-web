@@ -112,8 +112,8 @@ const Overlay = styled.div`
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   background: rgba(0, 0, 0, 0.6);
   display: flex;
   align-items: center;
@@ -241,5 +241,5 @@ const SaveButton = styled.button`
   font-size: 16px;
   color: #171714;
   font-weight: bold;
-  margin-top: 8%;
+  margin-top: 50px;
 `;

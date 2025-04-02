@@ -64,8 +64,8 @@ const Overlay = styled.div`
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   background: rgba(0, 0, 0, 0.6);
   display: flex;
   align-items: center;
@@ -124,7 +124,7 @@ const CategoryGrid = styled.div`
   gap: 15px;  
   justify-content: center;
   margin-top: 70px;
-  width: 100%;
+  width: 610px;
 `;
 
 const CategoryButton = styled.button<{ selected: boolean }>`
@@ -139,7 +139,7 @@ const CategoryButton = styled.button<{ selected: boolean }>`
   cursor: pointer;
   width: 60px;
   height: 60px;
-  border-radius: 50%;
+  border-radius: 30px;
 `;
 
 const CategoryContainer = styled.div`

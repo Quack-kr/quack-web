@@ -284,8 +284,8 @@ const Overlay = styled.div`
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   background: rgba(0, 0, 0, 0.6);
   display: flex;
   align-items: center;
@@ -455,7 +455,7 @@ const DifferentContainer = styled.div`
 `;
 
 const DayInfo = styled.div`
-  width: 100%;
+  width: 550px;
   height: 20px;
   display: flex;
   flex-direction: row;
@@ -475,7 +475,7 @@ const Explain = styled.div`
 `;
 
 const Divider = styled.div`
-  width: 100%;
+  width: 550px;
   border: 1px solid #525250;
   margin-top: 20px;
   margin-left: 40px;
@@ -491,7 +491,7 @@ const WeekContainer = styled.div`
 const DayBox = styled.div<{ selected: boolean}>`
   width: 40px;
   height: 40px;
-  border-radius: 50%;
+  border-radius: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
