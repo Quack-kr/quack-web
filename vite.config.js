@@ -8,5 +8,8 @@ export default defineConfig({
     port: 3000,
     historyApiFallback: true,
     base: "/",
+    define: {
+      "process.env": process.env,
+    },
   },
 });
