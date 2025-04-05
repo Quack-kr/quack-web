@@ -1,0 +1,36 @@
+ @font-face {
+  font-family: "TheJamsil5";
+  font-style: normal;
+  font-weight: 100;
+  src: url("../src/assets/fonts/The\ Jamsil\ 1\ Thin.ttf") format("woff2");
+}
+@font-face {
+  font-family: "TheJamsil5";
+  font-style: normal;
+  font-weight: 300;
+  src: url("../src/assets/fonts/The\ Jamsil\ 2\ Light.ttf") format("woff2");
+}
+@font-face {
+  font-family: "TheJamsil5";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../src/assets/fonts/The\ Jamsil\ 3\ Regular.ttf") format("woff2");
+}
+@font-face {
+  font-family: "TheJamsil5";
+  font-style: normal;
+  font-weight: 500;
+  src: url("../src/assets/fonts/The\ Jamsil\ 4\ Medium.ttf") format("woff2");
+}
+@font-face {
+  font-family: "TheJamsil5";
+  font-style: normal;
+  font-weight: 700;
+  src: url("../src/assets/fonts/The\ Jamsil\ 5\ Bold.ttf") format("woff2");
+}
+@font-face {
+  font-family: "TheJamsil5";
+  font-style: normal;
+  font-weight: 800;
+  src: url("../src/assets/fonts/The\ Jamsil\ 6\ ExtraBold.ttf") format("woff2");
+}
