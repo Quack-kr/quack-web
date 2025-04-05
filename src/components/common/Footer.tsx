@@ -5,7 +5,7 @@ import MainLogo from "../../assets/images/logo.png";
 const FooterWrapper = styled.div`
   bottom: 0;
   z-index: 1000;
-  width: 3356px;
+  width:100vw;
   height: 330px;
   background-color: #171714;
   display: flex;
@@ -58,11 +58,13 @@ const Title = styled.div`
 `;
 
 const Logo = styled.img`
-  width: 100px;
-  height: 160px;
+  width: auto;
+  height: auto;
   margin-top: 18px;
-  margin-right: -180px;
-`
+  margin-right: -100px;
+  filter: brightness(0) saturate(100%) invert(71%) sepia(3%) saturate(1073%)
+    hue-rotate(12deg) brightness(88%) contrast(93%);
+`;
 
 const Footer: React.FC = () => (
   <FooterWrapper>

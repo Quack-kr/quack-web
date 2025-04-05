@@ -1,6 +1,10 @@
 import React, {useEffect} from "react";
 import styled from "styled-components";
-import Background_Main from "../../assets/images/background_main.png"
+import Section1_1 from "../../assets/images/section1_1.png";
+import Section2_1 from "../../assets/images/section2_1.png";
+import Section3_1 from "../../assets/images/section3_1.png";
+import Section4_1 from "../../assets/images/section4_1.png";
+import Section5_1 from "../../assets/images/section5_1.png";
 
 const HomePageContainer = styled.div`
   display: flex;
@@ -9,17 +13,19 @@ const HomePageContainer = styled.div`
   max-width: 1920px;
   min-width: 1280px;
   padding-top: 200px;
+  margin-top: 50px;
   background-color: #f5c622;
   font-family: TheJamsil5;
 `;
 
-const Section = styled.section<{ isRegister?: boolean }>`
+const Section = styled.section<{ isRegister?: boolean; height?: string }>`
   display: flex;
   flex-direction: column;
   align-items: ${({ isRegister }) => (isRegister ? "center" : "flex-start")};
   background-color: #f5c622;
-  min-width: 1280px;
-  margin-bottom: 50px;
+  max-width: 1920px;
+  height: ${({ height }) => height || "980px"};
+  overflow: hidden;
 `;
 
 const Title1 = styled.div`
@@ -65,6 +71,28 @@ const RegisterBtn = styled.div`
   align-items: center;
 `
 
+const Image = styled.img<{
+  width?: string;
+  height?: string;
+  translateX?: string;
+  translateY?: string;
+  marginTop?: string;
+}>`
+  width: ${({ width }) => width || "auto"};
+  height: ${({ height }) => height || "auto"};
+  transform: translate(
+    ${({ translateX }) => translateX || "0"},
+    ${({ translateY }) => translateY || "0"}
+  );
+  margin-top: ${({ marginTop }) => marginTop || "20px"};
+
+  /*@media (max-width: 768px) {
+    width: 80%;
+    height: auto;
+    transform: none; 
+  }*/
+`;
+
 const HomePage: React.FC = () => {
   //배경 색 변경
   useEffect(() => {
@@ -90,6 +118,7 @@ const HomePage: React.FC = () => {
           근데 먹기 싫은건 딱! 알고 있을때 그때 사용하면
           <br />딱 좋을거 같지 않아요?
         </Text>
+        <Image src={Section1_1} translateX="500px" translateY="-460px" />
       </Section>
       <Section>
         <Title2>
@@ -104,6 +133,7 @@ const HomePage: React.FC = () => {
           <br />
           다! 빼면서 지금 먹을걸 찾아볼까요?
         </Text>
+        <Image src={Section2_1} marginTop="200px" />
       </Section>
       <Section>
         <Title2>
@@ -116,6 +146,7 @@ const HomePage: React.FC = () => {
           이러면 뭐가 남을진 모르겠지만
           <br />다 계획이 있으시겠죠?
         </Text>
+        <Image src={Section3_1} translateX="850px" translateY="-300px" />
       </Section>
       <Section>
         <Title2>
@@ -130,6 +161,13 @@ const HomePage: React.FC = () => {
           <br />
           가기 망설이는 이유까지 알고 가보자고!
         </Text>
+        <Image
+          src={Section4_1}
+          width="400px"
+          height="328px"
+          translateX="850px"
+          translateY="-350px"
+        />
       </Section>
       <Section>
         <Title2>
@@ -144,8 +182,13 @@ const HomePage: React.FC = () => {
           <br />
           미친맛 메뉴만 시키자!
         </Text>
+        <Image
+          src={Section5_1}
+          translateX="850px"
+          translateY="-250px"
+        />
       </Section>
-      <Section isRegister={true}>
+      <Section isRegister={true} height="552px">
         <Title2>
           우리 가게 홍보도
           <br />
@@ -156,9 +199,7 @@ const HomePage: React.FC = () => {
           <br />
           상위노출을 노려보세요!
         </Text>
-        <RegisterBtn>
-          입점 신청하기
-        </RegisterBtn>
+        <RegisterBtn>입점 신청하기</RegisterBtn>
       </Section>
     </HomePageContainer>
   );

@@ -5,11 +5,9 @@ import MainLogo from "../../assets/images/logo.png";
 import { Link, useLocation } from "react-router-dom";
 
 const HeaderContainer = styled.header<{ $isRoot: boolean }>`
-  position: fixed;
   top: 0;
   z-index: 1000;
-  max-width: 1920px;
-  min-width: 1280px;
+  width: 1920px;
   height: 200px;
   display: flex;
   justify-content: space-between;
