@@ -23,8 +23,8 @@ function App() {
   return (
     <Router>
       <GlobalStyles />
+      <Header />
       <div style={styles.pageContainer}>
-        <Header />
         {/* 라우터를 정의하는 Routes */}
         <Routes>
           <Route path="/" element={<HomePage />} /> {/* 기본 홈 */}
@@ -52,7 +52,7 @@ const styles: { pageContainer: React.CSSProperties } = {
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
-    minHeight: '100vh', // 화면의 최소 높이를 100%로 설정하여 모든 콘텐츠가 화면에 맞게 중앙에 위치하도록 함
+    //minHeight: '100vh', // 화면의 최소 높이를 100%로 설정하여 모든 콘텐츠가 화면에 맞게 중앙에 위치하도록 함
   }
 };
 

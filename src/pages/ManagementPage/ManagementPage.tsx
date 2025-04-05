@@ -57,7 +57,7 @@ const ManagementContainer = styled.div`
   display: flex;
   flex-direction: row;
   width: 1920px;
-  min-height: calc(100vh - 330px);
+  padding: 200px 335px 0px 335px;
   margin: 0;
   background-color: #171714;
 `;
