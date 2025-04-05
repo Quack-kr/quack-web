@@ -101,8 +101,8 @@ const BasicInformationPage: React.FC = () => {
           <SubTitle>업종</SubTitle>
           <InfoBoxContainer>
             {restaurant.category.map((cat, index) => (
-              <ColumnContainer>
-                <CategoryBox key={index}>
+              <ColumnContainer key={index}>
+                <CategoryBox>
                   <CategoryImage src={categoryIcons[cat]} alt={cat} />
                 </CategoryBox>
                 <CategoryName>{cat}</CategoryName>

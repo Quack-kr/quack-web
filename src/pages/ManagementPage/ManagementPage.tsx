@@ -48,7 +48,8 @@ export default ManagementPage;
 const ManagementContainer = styled.div`
   display: flex;
   flex-direction: row;
-  margin: 0 100px;
+  margin: 0;
+  padding: 0;
   background-color: #171714;
 `;
 

@@ -1,16 +1,16 @@
 import React from "react";
 import styled from "styled-components";
-import AppDownloadButton from "../../assets/images/appDownloadBtn.png";
+//import AppDownloadButton from "../../assets/images/appDownloadBtn.png";
 import MainLogo from "../../assets/images/logo.png";
 import { Link, useLocation } from "react-router-dom";
 
 const HeaderContainer = styled.header<{ $isRoot: boolean }>`
-  width: 100vw;
+  max-width: 1920px;
+  min-width: 1280px;
   height: 200px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 335px;
   background-color: ${({ $isRoot }) => ($isRoot ? "#F5C622" : "transparent")};
 `;
 
@@ -24,8 +24,8 @@ const Nav = styled.nav<{ $isRoot: boolean }>`
   align-items: center;
   width: auto;
   height: 48px;
-  a,
-  div {
+
+  a,  div {
     margin: 0 1rem;
     color: ${({ $isRoot }) => ($isRoot ? "#070706" : "#525250")};
     font-size: 20px;

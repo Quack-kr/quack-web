@@ -1,6 +1,7 @@
 import { createGlobalStyle } from "styled-components";
 
 const GlobalStyles = createGlobalStyle`
+
   *{
     margin: 0;
     padding: 0;
@@ -8,9 +9,11 @@ const GlobalStyles = createGlobalStyle`
   }
 
   body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Pretendard', sans-serif;
     background-color: #171714;
     color: #fff;
+    min-width: 1280px;
+    overflow-x: auto;
   }
 
   a {

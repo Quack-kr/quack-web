@@ -2,14 +2,24 @@ import React from "react";
 import styled from "styled-components";
 import MainLogo from "../../assets/images/logo.png";
 
+const FooterWrapper = styled.div`
+  width: 3356px;
+  height: 330px;
+  background-color: #171714;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
 const FooterContainer = styled.footer`
   text-align: center;
-  margin-top: 150px;
+  margin-top: 50px;
   width: 1250px;
   height: 91px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 50px;
 `;
 
 const CompanyInformationContainer = styled.div`
@@ -52,22 +62,24 @@ const Logo = styled.img`
 `
 
 const Footer: React.FC = () => (
-  <FooterContainer>
-    <Logo src={MainLogo} />
-    <CompanyInformationContainer>
-      <Title>꽥 플레이스</Title>
-      <Text>사업자 등록번호: 721-04-03645</Text>
-      <Text>
-        주소: 경기도 남양주시 와부읍 수레로116번길 16,
-        402호-J186호(아이비타워-2)
-      </Text>
-      <Text>문의사항: quack0410@naver.com</Text>
-    </CompanyInformationContainer>
-    <CopyRightContainer>
-      <Title>개인정보처리방침 | 꽥 서비스 이용약관</Title>
-      <Text>Copyright Ⓒ quack. All rights reserved. </Text>
-    </CopyRightContainer>
-  </FooterContainer>
+  <FooterWrapper>
+    <FooterContainer>
+      <Logo src={MainLogo} />
+      <CompanyInformationContainer>
+        <Title>꽥 플레이스</Title>
+        <Text>사업자 등록번호: 721-04-03645</Text>
+        <Text>
+          주소: 경기도 남양주시 와부읍 수레로116번길 16,
+          402호-J186호(아이비타워-2)
+        </Text>
+        <Text>문의사항: quack0410@naver.com</Text>
+      </CompanyInformationContainer>
+      <CopyRightContainer>
+        <Title>개인정보처리방침 | 꽥 서비스 이용약관</Title>
+        <Text>Copyright Ⓒ quack. All rights reserved. </Text>
+      </CopyRightContainer>
+    </FooterContainer>
+  </FooterWrapper>
 );
 
 export default Footer;

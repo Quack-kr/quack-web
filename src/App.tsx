@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import GlobalStyles from './assets/css/GlobalStyles';
 import Header from './components/common/Header';
@@ -11,6 +11,14 @@ import SignUpPage from './pages/SignUpPage/SignUp';
 import ApplyPage from './pages/ApplyPage/ApplyPage';
 
 function App() {
+    useEffect(() => {
+      if (location.pathname === "/") {
+        document.body.style.backgroundColor = "#F5C622";
+      } else {
+        document.body.style.backgroundColor = "#171714"; // 다른 페이지는 이 색으로
+      }
+    }, [location.pathname]);
+
   return (
     <Router>
       <GlobalStyles />
@@ -41,10 +49,9 @@ const styles: { pageContainer: React.CSSProperties } = {
   pageContainer: {
     display: 'flex',
     flexDirection: 'column',
-    //justifyContent: 'center',
+    justifyContent: 'center',
     alignItems: 'center',
     minHeight: '100vh', // 화면의 최소 높이를 100%로 설정하여 모든 콘텐츠가 화면에 맞게 중앙에 위치하도록 함
-    paddingBottom: '50px', // Footer와의 간격을 유지하기 위해 하단 패딩 추가
   }
 };
 
