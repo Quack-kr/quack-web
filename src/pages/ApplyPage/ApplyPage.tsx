@@ -202,9 +202,10 @@ const ApplyPage: React.FC = () => {
 const ApplyPageContainer = styled.div`
   display: flex;
   flex-direction: column;
-  //-content: center;
   align-items: center;
   width: 1920px;
+  margin-top: 100px;
+
 `;
 const ApplyTitle = styled.div`
   font-size: 2rem;
