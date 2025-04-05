@@ -59,7 +59,6 @@ const ManagementContainer = styled.div`
   width: 1920px;
   min-height: calc(100vh - 330px);
   margin: 0;
-  padding-top: 200px;
   background-color: #171714;
 `;
 

@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import styled from "styled-components";
 import { useApplyStore } from "../../stores/apply";
 import uploadImg from "../../assets/images/upload.png";
@@ -20,6 +20,14 @@ const ApplyPage: React.FC = () => {
   } = useApplyStore();
 
   const [businessCheck, setBusinessCheck] = useState<boolean>(false);
+
+  useEffect(() => {
+    if (location.pathname === "/") {
+      document.body.style.backgroundColor = "#F5C622";
+    } else {
+      document.body.style.backgroundColor = "#171714"; // 다른 페이지는 이 색으로
+    }
+  }, [location.pathname]);
 
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
@@ -194,9 +202,10 @@ const ApplyPage: React.FC = () => {
 const ApplyPageContainer = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  //-content: center;
   align-items: center;
-`
+  width: 1920px;
+`;
 const ApplyTitle = styled.div`
   font-size: 2rem;
   color: #EFEEDF;

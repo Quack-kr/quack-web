@@ -280,7 +280,6 @@ const BreakHours: React.FC<{ start: string; end: string }> = ({
   );
 };
 
-// ✅ 스타일 정의
 const Divider = styled.div`
   width: 550px;
   border: 1px solid #525250;

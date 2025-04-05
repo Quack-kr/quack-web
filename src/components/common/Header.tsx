@@ -9,6 +9,7 @@ const HeaderContainer = styled.header<{ $isRoot: boolean }>`
   z-index: 1000;
   width: 1920px;
   height: 200px;
+  padding: 80px 335px 20px 335px;
   display: flex;
   justify-content: space-between;
   align-items: center;

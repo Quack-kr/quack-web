@@ -5,7 +5,7 @@ import MainLogo from "../../assets/images/logo.png";
 const FooterWrapper = styled.div`
   bottom: 0;
   z-index: 1000;
-  width:100vw;
+  width: 100vw;
   height: 330px;
   background-color: #171714;
   display: flex;
@@ -17,12 +17,13 @@ const FooterWrapper = styled.div`
 const FooterContainer = styled.footer`
   text-align: center;
   margin-top: 50px;
-  width: 1250px;
+  width: 1920px;
   height: 91px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 50px;
+  padding: 20px 335px 20px 335px;
 `;
 
 const CompanyInformationContainer = styled.div`
@@ -61,7 +62,7 @@ const Logo = styled.img`
   width: auto;
   height: auto;
   margin-top: 18px;
-  margin-right: -100px;
+  margin-right: -80px;
   filter: brightness(0) saturate(100%) invert(71%) sepia(3%) saturate(1073%)
     hue-rotate(12deg) brightness(88%) contrast(93%);
 `;

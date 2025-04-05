@@ -39,8 +39,8 @@ function App() {
           <Route path="/management/apply" element={<ApplyPage />} />
           {/* 온라인 입점신청 페이지 */}
         </Routes>
-        <Footer />
       </div>
+      <Footer />
     </Router>
   );
 }

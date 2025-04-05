@@ -8,11 +8,10 @@ const SidebarContainer = styled.div`
   display: flex;
   flex-direction: column;
   margin-top: -180px;
-  margin-left: 330px;
   margin-right: 20px;
   justify-content: center;
   background-color: #171714;
-`
+`;
 
 const SidebarItem = styled.div`
   width: 180px;
