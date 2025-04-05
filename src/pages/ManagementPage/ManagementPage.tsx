@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import SideBar from "../../components/common/SideBar";
 import StoreList from "../../components/common/StoreList";
@@ -7,6 +7,14 @@ import BusinessInformationPage from "./BusinessInformationPage";
 
 const ManagementPage: React.FC = () => {
   const [activeTab, setActiveTab] = useState("기본정보");
+
+  useEffect(() => {
+    if (location.pathname === "/") {
+      document.body.style.backgroundColor = "#F5C622";
+    } else {
+      document.body.style.backgroundColor = "#171714"; // 다른 페이지는 이 색으로
+    }
+  }, [location.pathname]);
 
   return (
     <ManagementContainer>
@@ -48,8 +56,10 @@ export default ManagementPage;
 const ManagementContainer = styled.div`
   display: flex;
   flex-direction: row;
+  width: 1920px;
+  min-height: calc(100vh - 330px);
   margin: 0;
-  padding: 0;
+  padding-top: 200px;
   background-color: #171714;
 `;
 

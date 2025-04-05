@@ -5,6 +5,9 @@ import MainLogo from "../../assets/images/logo.png";
 import { Link, useLocation } from "react-router-dom";
 
 const HeaderContainer = styled.header<{ $isRoot: boolean }>`
+  position: fixed;
+  top: 0;
+  z-index: 1000;
   max-width: 1920px;
   min-width: 1280px;
   height: 200px;
@@ -14,9 +17,15 @@ const HeaderContainer = styled.header<{ $isRoot: boolean }>`
   background-color: ${({ $isRoot }) => ($isRoot ? "#F5C622" : "transparent")};
 `;
 
-const Logo = styled.img`
-  width: 80px;
-  height: 110px;
+const Logo = styled.img<{ $isRoot: boolean }>`
+  width: auto;
+  height: auto;
+
+  ${({ $isRoot }) =>
+    !$isRoot &&
+    `
+      filter: brightness(0) saturate(100%) invert(94%) sepia(10%) saturate(217%) hue-rotate(16deg) brightness(96%) contrast(87%);
+    `}
 `;
 
 const Nav = styled.nav<{ $isRoot: boolean }>`
@@ -79,7 +88,7 @@ const Header: React.FC = () => {
   return (
     <HeaderContainer $isRoot={isRoot}>
       <Link to="/">
-        <Logo src={MainLogo} />
+        <Logo src={MainLogo} $isRoot={isRoot}/>
       </Link>
       <Nav $isRoot={isRoot}>
         <Link to="/" className={isActive("/") ? "active" : ""}>

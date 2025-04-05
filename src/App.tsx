@@ -48,7 +48,7 @@ function App() {
 // 중앙 정렬 스타일 (React.CSSProperties 타입으로 명시)
 const styles: { pageContainer: React.CSSProperties } = {
   pageContainer: {
-    display: 'flex',
+    display: 'flex',/*  */
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',

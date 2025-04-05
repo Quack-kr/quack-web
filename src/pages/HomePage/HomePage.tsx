@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import styled from "styled-components";
 import Background_Main from "../../assets/images/background_main.png"
 
@@ -8,6 +8,7 @@ const HomePageContainer = styled.div`
   margin: 0;
   max-width: 1920px;
   min-width: 1280px;
+  padding-top: 200px;
   background-color: #f5c622;
   font-family: TheJamsil5;
 `;
@@ -27,6 +28,11 @@ const Title1 = styled.div`
   font-weight: 700;
   color: #070706;
   margin-bottom: 20px;
+
+  @media (max-width: 768px) {
+    font-size: 32px;
+    font-weight: 700;
+  }
 `
 const Title2 = styled.div`
   font-size: 64px;
@@ -37,9 +43,10 @@ const Title2 = styled.div`
 `;
 const Text = styled.div`
   font-size: 18px;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 26px;
   color: #070706;
+  font-family: Pretendard;
 `;
 
 const RegisterBtn = styled.div`
@@ -60,7 +67,13 @@ const RegisterBtn = styled.div`
 
 const HomePage: React.FC = () => {
   //배경 색 변경
-
+  useEffect(() => {
+    if (location.pathname === "/") {
+      document.body.style.backgroundColor = "#F5C622";
+    } else {
+      document.body.style.backgroundColor = "#171714"; // 다른 페이지는 이 색으로
+    }
+  }, [location.pathname]);
   return (
     <HomePageContainer>
       <Section>
