@@ -4,7 +4,17 @@ import styled from "styled-components";
 import MainLogo from "../../assets/images/logo.png";
 import { Link, useLocation } from "react-router-dom";
 
-const HeaderContainer = styled.header<{ $isRoot: boolean }>`
+const HeaderWrapper = styled.div<{ $isRoot: boolean }>`
+  width: 100vw;
+  height: 200px;
+  background-color: #171714;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: ${({ $isRoot }) => ($isRoot ? "#F5C622" : "transparent")};
+`;
+
+const HeaderContainer = styled.header`
   top: 0;
   z-index: 1000;
   width: 1920px;
@@ -13,7 +23,6 @@ const HeaderContainer = styled.header<{ $isRoot: boolean }>`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: ${({ $isRoot }) => ($isRoot ? "#F5C622" : "transparent")};
 `;
 
 const Logo = styled.img<{ $isRoot: boolean }>`
@@ -85,28 +94,30 @@ const Header: React.FC = () => {
   }
 
   return (
-    <HeaderContainer $isRoot={isRoot}>
-      <Link to="/">
-        <Logo src={MainLogo} $isRoot={isRoot}/>
-      </Link>
-      <Nav $isRoot={isRoot}>
-        <Link to="/" className={isActive("/") ? "active" : ""}>
-          서비스 소개
+    <HeaderWrapper $isRoot={isRoot}>
+      <HeaderContainer>
+        <Link to="/">
+          <Logo src={MainLogo} $isRoot={isRoot} />
         </Link>
-        <Link
-          to="/management"
-          className={isActive("/management") ? "active" : ""}
-        >
-          사장님 가게관리
-        </Link>
-        <Link to="/contact" className={isActive("/contact") ? "active" : ""}>
-          문의하기
-        </Link>
-        <div>|</div>
-        {/*<AppDownloadBtn src={AppDownloadButton}/>*/}
-        <AppDownloadBtn $isRoot={isRoot}>앱 다운로드</AppDownloadBtn>
-      </Nav>
-    </HeaderContainer>
+        <Nav $isRoot={isRoot}>
+          <Link to="/" className={isActive("/") ? "active" : ""}>
+            서비스 소개
+          </Link>
+          <Link
+            to="/management"
+            className={isActive("/management") ? "active" : ""}
+          >
+            사장님 가게관리
+          </Link>
+          <Link to="/contact" className={isActive("/contact") ? "active" : ""}>
+            문의하기
+          </Link>
+          <div>|</div>
+          {/*<AppDownloadBtn src={AppDownloadButton}/>*/}
+          <AppDownloadBtn $isRoot={isRoot}>앱 다운로드</AppDownloadBtn>
+        </Nav>
+      </HeaderContainer>
+    </HeaderWrapper>
   );
 };
 
