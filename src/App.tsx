@@ -1,4 +1,5 @@
-import React, {useEffect} from 'react';
+import React, { useEffect } from 'react';
+import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import GlobalStyles from './assets/css/GlobalStyles';
 import Header from './components/common/Header';

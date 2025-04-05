@@ -9,6 +9,7 @@ const HomePageContainer = styled.div`
   max-width: 1920px;
   min-width: 1280px;
   background-color: #f5c622;
+  font-family: TheJamsil5;
 `;
 
 const Section = styled.section<{ isRegister?: boolean }>`
@@ -36,11 +37,26 @@ const Title2 = styled.div`
 `;
 const Text = styled.div`
   font-size: 18px;
-  font-weight: 500;
-  line-height: 24px;
+  font-weight: 400;
+  line-height: 26px;
   color: #070706;
 `;
 
+const RegisterBtn = styled.div`
+  width: 200px;
+  height: 72px;
+  margin-top: 100px;
+  margin-bottom: 20px;
+  padding: 32px 16px;
+  border-radius: 40px;
+  font-weight: 700;
+  font-size: 24px;
+  color: #EFEEDF;
+  background-color: #070706;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
 
 const HomePage: React.FC = () => {
   //배경 색 변경
@@ -127,6 +143,9 @@ const HomePage: React.FC = () => {
           <br />
           상위노출을 노려보세요!
         </Text>
+        <RegisterBtn>
+          입점 신청하기
+        </RegisterBtn>
       </Section>
     </HomePageContainer>
   );
