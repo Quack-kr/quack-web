@@ -10,6 +10,13 @@ const config = {
     define: {
       "process.env": process.env,
     },
+    proxy: {
+      "/assets": {
+        target: "https://s3.ap-northeast-2.amazonaws.com", // 백엔드 서버 주소
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/assets/, ""), // 필요에 따라 /api 제거
+      },
+    },
   },
 } as UserConfig ;
 

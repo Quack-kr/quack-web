@@ -11,6 +11,9 @@ const FooterWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+
+  min-width: 1920px;
+  overflow-x: hidden;
 `;
 
 const FooterContainer = styled.footer`
@@ -71,13 +74,12 @@ const Footer: React.FC = () => (
     <FooterContainer>
       <Logo src={MainLogo} />
       <CompanyInformationContainer>
-        <Title>꽥 플레이스</Title>
-        <Text>사업자 등록번호: 721-04-03645</Text>
+        <Text>상호명: 꽥 | 사업자 등록번호: 721-04-03645 | 대표자: 김걸휘</Text>
         <Text>
           주소: 경기도 남양주시 와부읍 수레로116번길 16,
           402호-J186호(아이비타워-2)
         </Text>
-        <Text>문의사항: quack0410@naver.com</Text>
+        <Text>문의사항: quack0410@naver.com | 010-4121-9833</Text>
       </CompanyInformationContainer>
       <CopyRightContainer>
         <Title>개인정보처리방침 | 꽥 서비스 이용약관</Title>

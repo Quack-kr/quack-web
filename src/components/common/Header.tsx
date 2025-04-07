@@ -12,6 +12,9 @@ const HeaderWrapper = styled.div<{ $isRoot: boolean }>`
   justify-content: center;
   align-items: center;
   background-color: ${({ $isRoot }) => ($isRoot ? "#F5C622" : "transparent")};
+
+  min-width: 1920px;
+  overflow-x: hidden;
 `;
 
 const HeaderContainer = styled.header`
