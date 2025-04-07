@@ -13,6 +13,9 @@ import Section4_3 from "../../assets/images/section4_3.png";
 import Section5_1 from "../../assets/images/section5_1.png";
 import Section5_2 from "../../assets/images/section5_2.png";
 import Section5_3 from "../../assets/images/section5_3.png";
+import Section6_1 from "../../assets/images/section6_1.png";
+import Section6_2 from "../../assets/images/section6_2.png";
+import Section6_3 from "../../assets/images/section6_3.png";
 import AppleStoreBtn from "../../assets/images/apple_store_btn.png";
 
 const HomePage: React.FC = () => {
@@ -127,7 +130,7 @@ const HomePage: React.FC = () => {
         <Image src={Section5_2} translateX="180px" translateY="-150px" />
         <Image src={Section5_3} translateY="-100px" />
       </Section>
-      <Section isRegister={true} height="730px">
+      <Section isCenter={true} height="730px">
         <Title2>
           우리 가게 홍보도
           <br />
@@ -139,6 +142,13 @@ const HomePage: React.FC = () => {
           상위노출을 노려보세요!
         </Text>
         <RegisterBtn onClick={handleRegisterClick}>입점 신청하기</RegisterBtn>
+      </Section>
+      <Section isCenter={true} height="1250px">
+        <Image src={Section6_1} translateY="-200px" />
+        <AlignCenterContainer>
+          <Image src={Section6_2} />
+          <Image src={Section6_3} />
+        </AlignCenterContainer>
       </Section>
     </HomePageContainer>
   );
@@ -157,10 +167,18 @@ const HomePageContainer = styled.div`
   overflow: hidden;
 `;
 
-const Section = styled.section<{ isRegister?: boolean; height?: string }>`
+const AlignCenterContainer = styled.div`
+  width: 1000px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  transform: translateY(-150px);
+`
+
+const Section = styled.section<{ isCenter?: boolean; height?: string }>`
   display: flex;
   flex-direction: column;
-  align-items: ${({ isRegister }) => (isRegister ? "center" : "flex-start")};
+  align-items: ${({ isCenter }) => (isCenter ? "center" : "flex-start")};
   background-color: #f5c622;
   width: 1920px;
   padding: 200px 335px 0px 335px;
