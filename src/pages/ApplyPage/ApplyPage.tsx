@@ -1,10 +1,10 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import styled from "styled-components";
 import { useApplyStore } from "../../stores/apply";
 import uploadImg from "../../assets/images/upload.png";
 import moreSee from "../../assets/images/moreSee.png";
 import check from "../../assets/images/check.png";
-import { businessNumberCheckHandler } from "../../axios/business";
+import { businessNumberCheckHandler } from "../../apis/business";
 
 type ApplyStoreState = ReturnType<typeof useApplyStore.getState>;
 
@@ -20,6 +20,14 @@ const ApplyPage: React.FC = () => {
   } = useApplyStore();
 
   const [businessCheck, setBusinessCheck] = useState<boolean>(false);
+
+  useEffect(() => {
+    if (location.pathname === "/") {
+      document.body.style.backgroundColor = "#F5C622";
+    } else {
+      document.body.style.backgroundColor = "#171714"; // 다른 페이지는 이 색으로
+    }
+  }, [location.pathname]);
 
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
@@ -194,9 +202,11 @@ const ApplyPage: React.FC = () => {
 const ApplyPageContainer = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-`
+  width: 1920px;
+  margin-top: 100px;
+
+`;
 const ApplyTitle = styled.div`
   font-size: 2rem;
   color: #EFEEDF;
@@ -212,7 +222,6 @@ const ApplySubTitle = styled.div`
 const FormContainer = styled.form`
   display: flex;
   flex-direction: column;
-  width: 100%;
   max-width: 400px;
   margin-top: 50px;
 `;
@@ -230,7 +239,6 @@ const Label = styled.label`
 `
 
 const Input = styled.input`
-  width: 100%;
   height: 60px;
   padding: 10px;
   border-radius: 5px;
@@ -257,7 +265,6 @@ const Input = styled.input`
 const FileUploadBox = styled.label`
   display: flex;
   align-items: center;
-  width: 100%;
   height: 60px;
   padding: 10px;
   border-radius: 5px;
@@ -280,7 +287,6 @@ const FileUploadBox = styled.label`
     top: 0;
     left: 0;
     width: 100px;
-    height: 100%;
     opacity: 0;
     cursor: pointer;
   }
@@ -293,7 +299,6 @@ const UploadImg = styled.img`
 `
 
 const SubmitBtn = styled.button`
-  width: 100%;
   height: 60px;
   display: flex;
   justify-content: center;
@@ -310,7 +315,6 @@ const SubmitBtn = styled.button`
 `
 
 const AgreeBtn = styled.button`
-  width: 100%;
   height: 60px;
   display: flex;
   align-items: center;

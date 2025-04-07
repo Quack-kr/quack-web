@@ -3,7 +3,7 @@ import axios from "axios";
 export const businessNumberCheckHandler = async (bno: string) => {
   const data = { b_no: [bno] };
   const response = await axios.post(
-    `https://api.odcloud.kr/api/nts-businessman/v1/status?serviceKey=${process.env.REACT_APP_BUSINESS_API_KEY}`,
+    `https://api.odcloud.kr/api/nts-businessman/v1/status?serviceKey=${process.env.VITE_BUSINESS_API_KEY}`,
     data,
   );
   console.log(response);

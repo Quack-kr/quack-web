@@ -1,3 +1,6 @@
+## 🕊️ Branch Naming Convention
+> "이슈 번호(Issue number)-feat-기능 내용(feature details)" ex) 1-feat-social_login
+
 ## 📍 Commit Convention
 |**Type**|설명|
 |:--:|:--:|
@@ -20,3 +23,7 @@
    |-- utils => util 파일 관리 <br />
    |-- apis => api 목록들  <br />
    |-- assets => 프로젝트에 쓸 font, image 등 <br />**
+
+## GHCR_PAT
+ - API 키 별도 발급 해야함
+ - https://github.com/settings/tokens
