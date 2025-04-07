@@ -1,8 +1,7 @@
-// vite.config.js
-import { defineConfig } from "vite";
+import { defineConfig, UserConfig } from "vite";
 import react from "@vitejs/plugin-react";
 
-export default defineConfig({
+const config = {
   plugins: [react()],
   server: {
     port: 3000,
@@ -12,4 +11,6 @@ export default defineConfig({
       "process.env": process.env,
     },
   },
-});
+} as UserConfig ;
+
+export default defineConfig(config);
