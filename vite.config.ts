@@ -17,7 +17,6 @@ const config = {
         rewrite: (path) => path.replace(/^\/assets/, ""), // 필요에 따라 /api 제거
       },
     },
-
   },
 } as UserConfig ;
 
