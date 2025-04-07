@@ -164,6 +164,8 @@ const HomePageContainer = styled.div`
   margin-top: 50px;
   background-color: #f5c622;
   font-family: TheJamsil5;
+  
+  min-width: 1920px;
   overflow: hidden;
 `;
 
@@ -192,11 +194,6 @@ const Title1 = styled.div`
   font-weight: 700;
   color: #070706;
   margin-bottom: 20px;
-
-  @media (max-width: 768px) {
-    font-size: 32px;
-    font-weight: 700;
-  }
 `;
 const Title2 = styled.div`
   font-size: 64px;
