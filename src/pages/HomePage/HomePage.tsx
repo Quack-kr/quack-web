@@ -52,13 +52,8 @@ const HomePage: React.FC = () => {
         </Text>
         <Image src={AppleStoreBtn} translateY="30px" />
         <Image src={Section1_1} translateX="500px" translateY="-500px" />
+        <Image src={Section1_2} translateY="-100px" />
       </Section>
-      <Image
-        src={Section1_2}
-        //width="30px"
-        //height="311px"
-        translateY="-100px"
-      />
       <Section>
         <Title2>
           먹고싶은건
@@ -159,66 +154,66 @@ export default HomePage;
 const HomePageContainer = styled.div`
   display: flex;
   flex-direction: column;
-  margin: 0;
-  width: 1920px;
-  margin-top: 50px;
+  margin: 0 auto;
+  width: 1440px;
   background-color: #f5c622;
   font-family: TheJamsil5;
-  
-  min-width: 1920px;
-  overflow: hidden;
 `;
 
 const AlignCenterContainer = styled.div`
-  width: 1000px;
+  width: 100%;
+  max-width: 1000px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  transform: translateY(-150px);
-`
+  transform: translateY(-100px);
+  gap: 2rem;
+`;
 
 const Section = styled.section<{ isCenter?: boolean; height?: string }>`
   display: flex;
   flex-direction: column;
   align-items: ${({ isCenter }) => (isCenter ? "center" : "flex-start")};
   background-color: #f5c622;
-  width: 1920px;
-  padding: 200px 335px 0px 335px;
-  height: ${({ height }) => height || "980px"};
+  width: 100%;
+  height: ${({ height }) => height || "auto"};
   overflow: hidden;
+  position: relative;
 `;
 
 const Title1 = styled.div`
-  font-size: 80px;
-  line-height: 100px;
-  font-weight: 700;
-  color: #070706;
-  margin-bottom: 20px;
-`;
-const Title2 = styled.div`
   font-size: 64px;
-  line-height: 80px;
+  line-height: 84px;
   font-weight: 700;
   color: #070706;
-  margin-bottom: 20px;
+  margin-bottom: 24px;
 `;
+
+const Title2 = styled.div`
+  font-size: 48px;
+  line-height: 64px;
+  font-weight: 700;
+  color: #070706;
+  margin-bottom: 24px;
+`;
+
 const Text = styled.div`
   font-size: 18px;
   font-weight: 500;
-  line-height: 26px;
+  line-height: 28px;
   color: #070706;
   font-family: Pretendard;
+  margin-bottom: 24px;
 `;
 
 const RegisterBtn = styled.div`
-  width: 200px;
-  height: 72px;
-  margin-top: 100px;
-  margin-bottom: 20px;
-  padding: 32px 16px;
+  width: 240px;
+  height: 64px;
+  margin-top: 60px;
+  padding: 0 24px;
   border-radius: 40px;
   font-weight: 700;
-  font-size: 24px;
+  font-size: 20px;
   color: #efeedf;
   background-color: #070706;
   display: flex;
@@ -240,5 +235,5 @@ const Image = styled.img<{
     ${({ translateX }) => translateX || "0"},
     ${({ translateY }) => translateY || "0"}
   );
-  margin-top: ${({ marginTop }) => marginTop || "20px"};
+  margin-top: ${({ marginTop }) => marginTop || "16px"};
 `;

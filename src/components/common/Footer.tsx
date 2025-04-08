@@ -5,27 +5,24 @@ import MainLogo from "../../assets/images/logo.png";
 const FooterWrapper = styled.div`
   bottom: 0;
   z-index: 1000;
-  width: 100vw;
+  width: 1440px;
   height: 330px;
   background-color: #171714;
   display: flex;
   justify-content: center;
   align-items: center;
-
-  min-width: 1920px;
-  overflow-x: hidden;
 `;
 
 const FooterContainer = styled.footer`
   text-align: center;
   margin-top: 50px;
-  width: 1920px;
+  width: 100%;
+  max-width: 1000px;
   height: 91px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 50px;
-  padding: 20px 335px 20px 335px;
 `;
 
 const CompanyInformationContainer = styled.div`
@@ -54,10 +51,16 @@ const Text = styled.div`
 `
 
 const Title = styled.div`
-  color: #A8A7A1;
-  font-size: 14px;
-  word-spacing: 5px;
-  font-weight: bold;
+  a {
+    color: #A8A7A1;
+    font-size: 14px;
+    word-spacing: 5px;
+    font-weight: bold;
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
 `;
 
 const Logo = styled.img`
@@ -82,7 +85,7 @@ const Footer: React.FC = () => (
         <Text>문의사항: quack0410@naver.com | 010-4121-9833</Text>
       </CompanyInformationContainer>
       <CopyRightContainer>
-        <Title>개인정보처리방침 | 꽥 서비스 이용약관</Title>
+        <Title><a href="https://skitter-editor-255.notion.site/1c47fc0319a280b8ab47e88aba2cf3d9" target="_blank">개인정보처리방침 | 꽥 서비스 이용약관</a></Title>
         <Text>Copyright Ⓒ quack. All rights reserved. </Text>
       </CopyRightContainer>
     </FooterContainer>
