@@ -5,24 +5,21 @@ import MainLogo from "../../assets/images/logo.png";
 import { Link, useLocation } from "react-router-dom";
 
 const HeaderWrapper = styled.div<{ $isRoot: boolean }>`
-  width: 100vw;
+  width: 1440px;
   height: 200px;
   background-color: #171714;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: ${({ $isRoot }) => ($isRoot ? "#F5C622" : "transparent")};
-
-  min-width: 1920px;
-  overflow-x: hidden;
 `;
 
 const HeaderContainer = styled.header`
   top: 0;
   z-index: 1000;
-  width: 1920px;
+  width: 100%;
+  max-width: 1000px;
   height: 200px;
-  padding: 80px 335px 20px 335px;
   display: flex;
   justify-content: space-between;
   align-items: center;
