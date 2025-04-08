@@ -14,8 +14,6 @@ import Section5_1 from "../../assets/images/section5_1.png";
 import Section5_2 from "../../assets/images/section5_2.png";
 import Section5_3 from "../../assets/images/section5_3.png";
 import AppleStoreBtn from "../../assets/images/apple_store_btn.png";
-import Icon_mobile_logo from "../../assets/images/icon_mobile_logo.svg"
-import Icon_mobile_menu from "../../assets/images/icon_mobile_menu.svg"
 import Icon_mobile_app_store from "../../assets/images/icon_mobile_app_store.svg"
 import Icon_mobile_section1_bottom from "../../assets/images/icon_mobile_section1_bottom.svg"
 
@@ -31,29 +29,23 @@ const MobileHomePage: React.FC = () => {
   };
 
   return (
-    <MobileHomePageContainer>
-        <Header>
-            <Image src={Icon_mobile_logo} width={"100px"} height={"80px"}/>
-            <Image src={Icon_mobile_menu} width={"50px"} height={"50px"} />
-        </Header>
-        <Landing>
-            <MainConst>
-                싫어하는 걸<br/>싹 뺴고<br/>시작하자.
-            </MainConst>
-            <SubConst>
-                배고픈 순간 먹고 싶은 음식은 떠오르지 않을 때<br/> 근데 먹기 싫은 건 딱! 알고 있을때<br/> 그때 사용하면 딱 좋을 거 같지 않아요?
-            </SubConst>
-            <ImageCenter>
-                <Image src={Icon_mobile_app_store} width={"230px"} marginTop="320px"/>
-            </ImageCenter>
-            <Section_1_BottomImage src={Icon_mobile_section1_bottom} width={"380px"}/>
-            <Section_1_footer>
-                점심에 고기는 해비하고 햄버거는 너무 인스턴트고 피자는 어제 먹었구 치킨도 지금 안땡기고 밥은 먹어야대는데 뭘 먹어야되ㄴ 아 맞다! 저녁에 뭐 먹는다 했으니까 그거도 빼고 아 대리님 다이어트 한다니까 분식은 안드시겠지..
-            </Section_1_footer>
-        </Landing>
-
-      <span>Hello</span>
-    </MobileHomePageContainer>
+    <Landing>
+        <MainConst>
+            싫어하는 걸<br/>싹 뺴고<br/>시작하자.
+        </MainConst>
+        <SubConst>
+            배고픈 순간 먹고 싶은 음식은 떠오르지 않을 때<br/> 근데 먹기 싫은 건 딱! 알고 있을때<br/> 그때 사용하면 딱 좋을 거 같지 않아요?
+        </SubConst>
+        <ImageCenter>
+            <Image src={Icon_mobile_app_store} width={"230px"} marginTop="320px"/>
+        </ImageCenter>
+        <Section_1_BottomImage src={Icon_mobile_section1_bottom} width={"380px"}/>
+        <Section_1_footer>
+          <span>
+            점심에 고기는 해비하고 햄버거는 너무 인스턴트고 피자는 어제 먹었구 치킨도 지금 안땡기고 밥은 먹어야대는데 뭘 먹어야되ㄴ 아 맞다! 저녁에 뭐 먹는다 했으니까 그거도 빼고 아 대리님 다이어트 한다니까 분식은 안드시겠지..
+          </span>
+        </Section_1_footer>
+    </Landing>
   );
 }
 
@@ -67,14 +59,6 @@ const MobileHomePageContainer = styled.div`
   overflow: hidden;
 `;
 
-const Header = styled.div`
-    display: flex;
-    height: 120px;
-    padding: 80px 40px 40px 40px;
-    justify-content: space-between;
-    align-items: center;
-    background: #f5c622;
-`
 
 const Landing = styled.div`
     height: auto;
@@ -110,11 +94,10 @@ const ImageCenter = styled.div`
 
 
 const Section_1_footer = styled.div`
-    display: flex;
-    align-items: center;
-    
-    
-    padding: 5px;
+    display: grid;
+    place-items: center; 
+
+    padding: 15px;
     background: #9C6D38;
     height: 65px;
     text-align: center;
@@ -127,28 +110,25 @@ const Section_1_footer = styled.div`
 
     white-space: nowrap; 
     overflow: hidden;
+
 `
 
-
-
 const Image = styled.img<{
-    width?: string;
-    height?: string;
-    translateX?: string;
-    translateY?: string;
-    marginTop?: string;
+  width?: string;
+  height?: string;
+  translateX?: string;
+  translateY?: string;
+  marginTop?: string;
 }>`
-  width: ${({ width }) => width || "auto"};
-  height: ${({ height }) => height || "auto"};
-  transform: translate(
-    ${({ translateX }) => translateX || "0"},
-    ${({ translateY }) => translateY || "0"}
-  );
-  margin-top: ${({ marginTop }) => marginTop || "0px"};
-    display: block;
+width: ${({ width }) => width || "auto"};
+height: ${({ height }) => height || "auto"};
+transform: translate(
+  ${({ translateX }) => translateX || "0"},
+  ${({ translateY }) => translateY || "0"}
+);
+margin-top: ${({ marginTop }) => marginTop || "0px"};
+  display: block;
 `;
 
 const Section_1_BottomImage = styled(Image)`
-  //border-bottom: 1px solid #9C6D38;
 `;
-
