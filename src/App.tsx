@@ -26,9 +26,9 @@ function AppContent() {
 
   return (
     <>
-      <GlobalStyles />
-      <Header />
-      <div style={styles.pageContainer}>
+      {/*<GlobalStyles />*/}
+      {/*<Header />*/}
+      {/*<div style={styles.pageContainer}>*/}
         <Routes>
           <Route path="/" element={isMobile ? <MobileHomePage /> : <HomePage />} />
           <Route path="/management" element={<ManagementPage />} />
@@ -42,8 +42,8 @@ function AppContent() {
           <Route path="/management/apply" element={<ApplyPage />} />
           {/* 온라인 입점신청 페이지 */}
         </Routes>
-      </div>
-      <Footer />
+      {/*</div>*/}
+      {/*<Footer />*/}
     </>
   );
 }
