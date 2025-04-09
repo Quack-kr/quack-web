@@ -12,8 +12,8 @@ import LoginPage from './pages/SignInPage/SignIn';
 import SignUpPage from './pages/SignUpPage/SignUp';
 import ApplyPage from './pages/ApplyPage/ApplyPage';
 import styled from 'styled-components';
-import Icon_mobile_logo from "./assets/images/icon_mobile_logo.svg"
-import Icon_mobile_menu from "./assets/images/icon_mobile_menu.svg"
+import Icon_mobile_logo from "./assets/images/mobile/icon_mobile_logo.svg"
+import Icon_mobile_menu from "./assets/images/mobile/icon_mobile_menu.svg"
 import MobileGlobalStyle from './assets/css/MobileGlobalStyle';
 
 const MobileHomePageContainer = styled.div`
