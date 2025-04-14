@@ -5,8 +5,10 @@ import MainLogo from "../../assets/images/logo.png";
 import { Link, useLocation } from "react-router-dom";
 
 const HeaderWrapper = styled.div<{ $isRoot: boolean }>`
-  width: 1440px;
+  width: 100vw;
+  min-width: 1920px;
   height: 200px;
+  margin-bottom: 50px;
   background-color: #171714;
   display: flex;
   justify-content: center;
@@ -17,9 +19,11 @@ const HeaderWrapper = styled.div<{ $isRoot: boolean }>`
 const HeaderContainer = styled.header`
   top: 0;
   z-index: 1000;
-  width: 100%;
-  max-width: 1000px;
+  width: 1920px;
+  min-width: 1920px;
   height: 200px;
+  box-sizing: border-box;
+  padding: 80px 335px 20px 335px;
   display: flex;
   justify-content: space-between;
   align-items: center;

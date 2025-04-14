@@ -8,7 +8,7 @@ const RegisterContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 150px 0;
+  margin: 300px 0;
 `;
 
 const RegisterTitle = styled.div`

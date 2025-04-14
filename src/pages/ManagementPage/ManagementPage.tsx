@@ -17,47 +17,60 @@ const ManagementPage: React.FC = () => {
   }, [location.pathname]);
 
   return (
-    <ManagementContainer>
-      <SideBar />
-      <Conatiner>
-        <StoreListSection>
-          <Title active={true}>내 가게</Title>
-          <StoreList />
-        </StoreListSection>
-        <InformationSection>
-          <TitleSection>
-            <Title
-              active={activeTab === "기본정보"}
-              onClick={() => setActiveTab("기본정보")}
-            >
-              기본정보
-            </Title>
-            <Title
-              active={activeTab === "영업정보"}
-              onClick={() => setActiveTab("영업정보")}
-            >
-              영업정보
-            </Title>
-          </TitleSection>
-          <Divider />
-          {activeTab === "기본정보" ? (
-            <BasicInformationPage />
-          ) : (
-            <BusinessInformationPage />
-          )}
-        </InformationSection>
-      </Conatiner>
-    </ManagementContainer>
+    <ManagementWrapper>
+      <ManagementContainer>
+        <SideBar />
+        <Conatiner>
+          <StoreListSection>
+            <Title active={true}>내 가게</Title>
+            <StoreList />
+          </StoreListSection>
+          <InformationSection>
+            <TitleSection>
+              <Title
+                active={activeTab === "기본정보"}
+                onClick={() => setActiveTab("기본정보")}
+              >
+                기본정보
+              </Title>
+              <Title
+                active={activeTab === "영업정보"}
+                onClick={() => setActiveTab("영업정보")}
+              >
+                영업정보
+              </Title>
+            </TitleSection>
+            <Divider />
+            {activeTab === "기본정보" ? (
+              <BasicInformationPage />
+            ) : (
+              <BusinessInformationPage />
+            )}
+          </InformationSection>
+        </Conatiner>
+      </ManagementContainer>
+    </ManagementWrapper>
   );
 };
 
 export default ManagementPage;
+
+const ManagementWrapper = styled.div`
+  width: 100vw;
+  min-width: 1920px;
+  margin-bottom: 50px;
+  background-color: #171714;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
 
 const ManagementContainer = styled.div`
   display: flex;
   flex-direction: row;
   width: 1920px;
   padding: 0px 335px 0px 335px;
+  box-sizing: border-box;
   margin: 0;
   background-color: #171714;
 `;

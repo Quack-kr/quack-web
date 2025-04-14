@@ -106,7 +106,7 @@ const HomePage: React.FC = () => {
           translateY="-350px"
         />
         <Image src={Section4_2} translateY="-250px" />
-        <Image src={Section4_3} translateX="650px" translateY="-605px" />
+        <Image src={Section4_3} translateX="700px" translateY="-602px" />
       </Section>
       <Section height="1100px">
         <Title2>
@@ -122,7 +122,7 @@ const HomePage: React.FC = () => {
           미친맛 메뉴만 시키자!
         </Text>
         <Image src={Section5_1} translateX="850px" translateY="-250px" />
-        <Image src={Section5_2} translateX="180px" translateY="-150px" />
+        <Image src={Section5_2} translateX="200px" translateY="-150px" />
         <Image src={Section5_3} translateY="-100px" />
       </Section>
       <Section isCenter={true} height="730px">
@@ -155,9 +155,10 @@ const HomePageContainer = styled.div`
   display: flex;
   flex-direction: column;
   margin: 0 auto;
-  width: 1440px;
+  width: 1920px;
   background-color: #f5c622;
   font-family: TheJamsil5;
+  overflow-x: hidden;
 `;
 
 const AlignCenterContainer = styled.div`
@@ -174,8 +175,9 @@ const Section = styled.section<{ isCenter?: boolean; height?: string }>`
   display: flex;
   flex-direction: column;
   align-items: ${({ isCenter }) => (isCenter ? "center" : "flex-start")};
+  margin-left: ${({ isCenter }) => (isCenter ? "0" : "350px")};
   background-color: #f5c622;
-  width: 100%;
+  width: 1920px;
   height: ${({ height }) => height || "auto"};
   overflow: hidden;
   position: relative;
