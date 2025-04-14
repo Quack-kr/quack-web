@@ -7,7 +7,7 @@ import appleLogo from "../assets/images/appleLogo.png";
 const SocialLoginContainer = styled.div`
   display: flex;
   flex-direction: column;
-  margin: 30px 0;
+  margin: 50px 0;
 `
 
 const SocialLoginBtn = styled.button`

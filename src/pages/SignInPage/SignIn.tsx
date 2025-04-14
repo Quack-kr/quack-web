@@ -20,14 +20,14 @@ const LoginContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 150px 0;
+  margin: 300px 0;
 `;
 
 const LoginTitle = styled.div`
   font-size: 2rem;
   color: #EFEEDF;
   font-weight: bold;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 `
 
 const LoginSubTitle = styled.div`
