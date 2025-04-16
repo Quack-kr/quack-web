@@ -34,6 +34,18 @@ import IconSeafood from "../../assets/images/mobile/food-icons/icon_mobile_seafo
 import IconSnack from "../../assets/images/mobile/food-icons/icon_mobile_snack_food.svg";
 import IconWestern from "../../assets/images/mobile/food-icons/icon_mobile_western_foog.svg";
 
+// 아이콘 import
+import IconAtmosphere from "../../assets/images/mobile/quality-icons/icon_mobile_atmosphere.svg";
+import IconCostEffective from "../../assets/images/mobile/quality-icons/icon_mobile_cost_effective.svg";
+import IconFire from "../../assets/images/mobile/quality-icons/icon_mobile_fire.svg";
+import IconKindness from "../../assets/images/mobile/quality-icons/icon_mobile_kindness.svg";
+import IconMenu from "../../assets/images/mobile/quality-icons/icon_mobile_menu.svg";
+import IconNoise from "../../assets/images/mobile/quality-icons/icon_mobile_noise.svg";
+import IconParking from "../../assets/images/mobile/quality-icons/icon_mobile_parking.svg";
+import IconSeat from "../../assets/images/mobile/quality-icons/icon_mobile_seat.svg";
+import IconTime from "../../assets/images/mobile/quality-icons/icon_mobile_time.svg";
+import IconToilet from "../../assets/images/mobile/quality-icons/icon_mobile_toilet.svg";
+
 
 const MobileHomePage: React.FC = () => {
   document.body.style.backgroundColor = "#F5C622";
@@ -60,6 +72,19 @@ const MobileHomePage: React.FC = () => {
         { name: "양식", icon: IconWestern },
     ];
 
+    // 리스트 생성
+    const qualityList = [
+        { label: <>음식 <br /> 늦게나오는 곳</>, icon: IconTime },
+        { label: <>화장실 <br /> 더러운 곳</>, icon: IconToilet },
+        { label: <>가성비 <br /> 안좋은 곳</>, icon: IconCostEffective },
+        { label: <>시끄러운 곳</>, icon: IconNoise },
+        { label: <>분위기 <br /> 안좋은 곳</>, icon: IconAtmosphere },
+        { label: <>불친절한 곳</>, icon: IconKindness },
+        { label: <>메뉴구성 <br /> 안좋은 곳</>, icon: IconMenu },
+        { label: <>좌석 <br /> 불편한 곳</>, icon: IconSeat },
+        { label: <>고기 <br /> 안구워주는 곳</>, icon: IconFire },
+        { label: <>주차 <br /> 불편한 곳</>, icon: IconParking },
+    ];
   const handleRegisterClick = () => {
     navigate("/management/apply");
   };
@@ -90,15 +115,44 @@ const MobileHomePage: React.FC = () => {
              <SubConst>
                  안 땡기는거 어제 먹은거 좀 있다 먹을거 <br/> 다! 빼면서 지금 먹을걸 찾아볼까요?
              </SubConst>
-             <FoodList>
+             <FoodListSection2>
                  {foodList.map((food, index) => (
                      <FoodItem key={index}>
                          <FoodImage src={food.icon} />
                          <FoodLabel>{food.name}</FoodLabel>
                      </FoodItem>
                  ))}
-             </FoodList>
+             </FoodListSection2>
          </Section2>
+          <Section3>
+              <MainConst>
+                  그리고 난... <br/>  싫어하는 것도 <br/>  다 빼버려!
+              </MainConst>
+              <SubConst>
+                  이러면 뭐가 남을진 모르겠지만 <br/> 다 계획이 있으시겠죠?
+              </SubConst>
+              <FoodListSection3>
+                  {qualityList.map((quality, index) => (
+                      <FoodItem key={index}>
+                          <FoodImage src={quality.icon} />
+                          <FoodLabelSection3>{quality.label}</FoodLabelSection3>
+                      </FoodItem>
+                  ))}
+              </FoodListSection3>
+          </Section3>
+          <Section4>
+              <MainConst>
+                  빼고 찾은 식당 <br/> 갈까? 말까? <br/> 고민될 땐
+              </MainConst>
+              <SubConst>
+                  최근 3개월 사람들이 방문하는 이유와 <br/> 가기 망설이는 이유까지 알고 가보자고!
+              </SubConst>
+              <GoodElement>
+                  <GoodTitle>
+                      갈까?
+                  </GoodTitle>
+              </GoodElement>
+          </Section4>
       </>
   );
 }
@@ -196,7 +250,7 @@ const Section2 = styled.div`
     background-repeat: no-repeat;
 `
 
-const FoodList = styled.div`
+const FoodListSection2 = styled.div`
     display: flex;
     overflow-x: auto;
     white-space: nowrap;
@@ -232,3 +286,58 @@ const FoodLabel = styled.div`
   font-size: 14px;
   color: #333;
 `
+
+//Section3
+const Section3 = styled.div`
+    height: auto;
+    background-image: url('/images/icon_mobile_section3_bg.svg');
+    background-color: #f5c622;
+    background-size: 60%;
+    background-position: 90% 65%;
+    background-repeat: no-repeat;
+`
+
+const FoodListSection3 = styled.div`
+    display: flex;
+    overflow-x: auto;
+    white-space: nowrap;
+    padding: 10px;
+    gap: 25px;
+    margin-top: 350px;
+    padding-left: 20px;
+
+    /* 스크롤바 숨기고 싶을 때 (옵션) */
+    -ms-overflow-style: none; /* IE, Edge */
+    scrollbar-width: none; /* Firefox */
+    &::-webkit-scrollbar {
+        display: none; /* Chrome, Safari */
+    }
+`
+
+const FoodLabelSection3 = styled.div`
+  margin-top: 5px;
+  font-size: 14px;
+  color: #333;
+  text-align: center;
+`
+//Section4
+const Section4 = styled.div`
+    height: auto;
+    background-image: url('/images/icon_mobile_section4_bg.svg');
+    background-color: #f5c622;
+    background-size: 60%;
+    background-position: 90% 55%;
+    background-repeat: no-repeat;
+`
+
+const GoodElement = styled.div`
+    display: flex;
+    margin-top: 350px;
+    background-color: #f5c622;
+`
+const GoodTitle = styled.div`
+    
+    background-color: #f5c622;
+`
+
+
