@@ -46,6 +46,15 @@ import IconSeat from "../../assets/images/mobile/quality-icons/icon_mobile_seat.
 import IconTime from "../../assets/images/mobile/quality-icons/icon_mobile_time.svg";
 import IconToilet from "../../assets/images/mobile/quality-icons/icon_mobile_toilet.svg";
 
+// 평가
+import IconTimeEvaluation from "../../assets/images/mobile/evaluation/icon_mobile_time.svg";
+import IconDoorEvaluation from "../../assets/images/mobile/evaluation/icon_mobile_door.svg";
+import IconParkingEvaluation from "../../assets/images/mobile/evaluation/icon_mobile_parking.svg";
+import IconServiceEvaluation from "../../assets/images/mobile/evaluation/icon_mobile_service.svg";
+import IconCostEvaluation from "../../assets/images/mobile/evaluation/icon_mobile_cost.svg";
+import IconToiletEvaluation from "../../assets/images/mobile/evaluation/icon_mobile_toilet.svg";
+
+
 
 const MobileHomePage: React.FC = () => {
   document.body.style.backgroundColor = "#F5C622";
@@ -151,6 +160,58 @@ const MobileHomePage: React.FC = () => {
                   <GoodTitle>
                       갈까?
                   </GoodTitle>
+                  <GoodContent>
+                      <GoodContentInner>
+                      <GoodContentImage src={IconTimeEvaluation}/>
+                      <GoodContentText>웨이팅 인정 맛집이에요</GoodContentText>
+                      </GoodContentInner>
+                      <GoodContentNumber>864</GoodContentNumber>
+
+                  </GoodContent>
+                  <GoodContent>
+                      <GoodContentInner>
+                          <GoodContentImage src={IconDoorEvaluation}/>
+                          <GoodContentText>재방문 확정이에요</GoodContentText>
+                      </GoodContentInner>
+                      <GoodContentNumber>168</GoodContentNumber>
+
+                  </GoodContent>
+                  <GoodContent>
+                      <GoodContentInner>
+                          <GoodContentImage src={IconToiletEvaluation}/>
+                          <GoodContentText>화장실이 깨끗해요</GoodContentText>
+                      </GoodContentInner>
+                      <GoodContentNumber>113</GoodContentNumber>
+
+                  </GoodContent>
+
+                  <GoodTitle>
+                      말까?
+                  </GoodTitle>
+                  <GoodContent>
+                      <GoodContentInner>
+                          <GoodContentImage src={IconCostEvaluation}/>
+                          <GoodContentText>가성비가 좋지 않아요</GoodContentText>
+                      </GoodContentInner>
+                      <GoodContentNumber>82</GoodContentNumber>
+
+                  </GoodContent>
+                  <GoodContent>
+                      <GoodContentInner>
+                          <GoodContentImage src={IconDoorEvaluation}/>
+                          <GoodContentText>서비스가 미흡해요</GoodContentText>
+                      </GoodContentInner>
+                      <GoodContentNumber>24</GoodContentNumber>
+
+                  </GoodContent>
+                  <GoodContent>
+                      <GoodContentInner>
+                          <GoodContentImage src={IconParkingEvaluation}/>
+                          <GoodContentText>주차가 불편해요</GoodContentText>
+                      </GoodContentInner>
+                      <GoodContentNumber>15</GoodContentNumber>
+
+                  </GoodContent>
               </GoodElement>
           </Section4>
       </>
@@ -326,18 +387,56 @@ const Section4 = styled.div`
     background-image: url('/images/icon_mobile_section4_bg.svg');
     background-color: #f5c622;
     background-size: 60%;
-    background-position: 90% 55%;
+    background-position: 90% 28%;
     background-repeat: no-repeat;
 `
 
 const GoodElement = styled.div`
     display: flex;
-    margin-top: 350px;
+    flex-direction: column;
+    margin-top: 280px;
+    padding: 0px 40px 40px 40px;
     background-color: #f5c622;
 `
 const GoodTitle = styled.div`
-    
+    color : white;
+    font-size: 40px;
     background-color: #f5c622;
+    padding: 12px;
+    margin-top: 20px;
 `
 
+const GoodContent = styled.div`
+    display: flex;
+    background-color: #BC8B38;
+    border-radius: 15px;
+    padding: 15px 5px;
+    justify-content: space-between;
+    margin: 5px 0px;
+    
+`
+
+const GoodContentImage = styled.img`
+    width: 40px;
+    border-radius: 20px;
+    padding: 0px 15px;
+`;
+
+const GoodContentText = styled.div`
+    color : white;
+    align-content: center;
+    font-size: 18px;
+`
+const GoodContentInner = styled.div`
+    display: flex;
+    
+    
+
+`
+const GoodContentNumber = styled.div`
+    color : white;
+    align-content: center;
+    padding: 0px 20px;
+
+`
 
