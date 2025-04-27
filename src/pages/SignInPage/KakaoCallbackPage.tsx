@@ -1,10 +1,12 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { socialSignin, socialSignup } from "../../apis/auth";
+import { useAuthStore } from "../../stores/auth";
 import axios from "axios";
 
 const KakaoCallbackPage = () => {
   const navigate = useNavigate();
+  const { setAuth } = useAuthStore();
 
   const K_REST_API_KEY = import.meta.env.VITE_KAKAO_REST_API_KEY;
   const K_REDIRECT_URI = import.meta.env.VITE_KAKAO_REDIRECT_URI;
@@ -52,16 +54,12 @@ const KakaoCallbackPage = () => {
           provider: "kakao",
         });
 
-        if (!accessToken) {
-          alert("accessToken이 존재하지 않습니다.");
+        if (!accessToken || !user) {
+          alert("로그인 실패: accessToken 또는 user 정보가 존재하지 않습니다.");
           return;
         }
 
-        localStorage.setItem("accessToken", accessToken);
-        if (user) {
-          localStorage.setItem("user", JSON.stringify(user));
-        }
-
+        const { setAuth } = useAuthStore();
         navigate("/management");
       }
       catch (err: any) {
@@ -76,16 +74,18 @@ const KakaoCallbackPage = () => {
                 provider: "kakao",
               });
 
-              localStorage.setItem("accessToken", accessToken);
-              if (user) {
-                localStorage.setItem("user", JSON.stringify(user));
+              if (!accessToken || !user) {
+                alert("회원가입 실패: accessToken 또는 user 정보가 없습니다.");
+                return;
               }
 
+              setAuth(accessToken, user);
               navigate("/management");
-            } catch (registerError) {
+            }
+            catch (registerError) {
               console.error("회원가입 실패", registerError);
               alert("회원가입에 실패했습니다.");
-              navigate("/management/signin");
+              navigate("/management/signup");
             }
           } else if (err.code === "ECONNABORTED") {
             alert(
@@ -100,7 +100,6 @@ const KakaoCallbackPage = () => {
           alert("알 수 없는 오류가 발생했습니다.");
         }
       }
-
     };
 
     handleKakaoLogin();
