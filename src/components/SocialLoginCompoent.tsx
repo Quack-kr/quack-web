@@ -52,22 +52,29 @@ const SocialTitle = styled.div`
 `
 
 const SocialLoginComponent: React.FC = () => {
+  const K_REST_API_KEY = import.meta.env.VITE_KAKAO_REST_API_KEY;
+  const K_REDIRECT_URI = import.meta.env.VITE_KAKAO_REDIRECT_URI;
+  const kakaoURL = `https://kauth.kakao.com/oauth/authorize?client_id=${K_REST_API_KEY}&redirect_uri=${K_REDIRECT_URI}&response_type=code`;
+  console.log(import.meta.env.VITE_KAKAO_REDIRECT_URI);
+  const handleKakaoLogin = () => {
+    window.location.href = kakaoURL;
+  }
   return (
     <SocialLoginContainer>
-        <SocialLoginBtn className="kakaoBtn">
-          <SocialLogo src={kakaoLogo} className="kakaoLogo"/>
-          <SocialTitle>카카오로 계속하기</SocialTitle>
-        </SocialLoginBtn>
-        <SocialLoginBtn className="naverBtn">
-          <SocialLogo src={naverLogo} className="naverLogo"/>
-          <SocialTitle>네이버로 계속하기</SocialTitle>
-        </SocialLoginBtn>
-        <SocialLoginBtn className="appleBtn">
-          <SocialLogo src={appleLogo} className="appleLogo"/>
-          <SocialTitle>애플로 계속하기</SocialTitle>
-        </SocialLoginBtn>
-      </SocialLoginContainer>
-  )
+      <SocialLoginBtn className="kakaoBtn" onClick={handleKakaoLogin}>
+        <SocialLogo src={kakaoLogo} className="kakaoLogo" />
+        <SocialTitle>카카오로 계속하기</SocialTitle>
+      </SocialLoginBtn>
+      <SocialLoginBtn className="naverBtn">
+        <SocialLogo src={naverLogo} className="naverLogo" />
+        <SocialTitle>네이버로 계속하기</SocialTitle>
+      </SocialLoginBtn>
+      <SocialLoginBtn className="appleBtn">
+        <SocialLogo src={appleLogo} className="appleLogo" />
+        <SocialTitle>애플로 계속하기</SocialTitle>
+      </SocialLoginBtn>
+    </SocialLoginContainer>
+  );
 }
 
 export default SocialLoginComponent;

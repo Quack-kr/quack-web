@@ -15,6 +15,7 @@ import styled from 'styled-components';
 import Icon_mobile_logo from "./assets/images/mobile/icon_mobile_logo.svg"
 import Icon_mobile_menu from "./assets/images/mobile/icon_mobile_menu.svg"
 import MobileGlobalStyle from './assets/css/MobileGlobalStyle';
+import KakaoCallbackPage from "./pages/SignInPage/KakaoCallbackPage";
 
 const MobileHomePageContainer = styled.div`
   width: 100%;
@@ -86,19 +87,20 @@ function AppContent() {
     <>
       <GlobalStyles />
       <Header />
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/management" element={<ManagementPage />} />
-          {/* 사장님 가게관리 페이지 */}
-          <Route path="/contact" element={<ContactPage />} />
-          {/* 문의하기 페이지 */}
-          <Route path="/management/signin" element={<LoginPage />} />
-          {/* 로그인 페이지 */}
-          <Route path="/management/signup" element={<SignUpPage />} />
-          {/* 회원가입 페이지 */}
-          <Route path="/management/apply" element={<ApplyPage />} />
-          {/* 온라인 입점신청 페이지 */}
-        </Routes>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/management" element={<ManagementPage />} />
+        {/* 사장님 가게관리 페이지 */}
+        <Route path="/contact" element={<ContactPage />} />
+        {/* 문의하기 페이지 */}
+        <Route path="/management/signin" element={<LoginPage />} />
+        {/* 로그인 페이지 */}
+        <Route path="/management/signup" element={<SignUpPage />} />
+        {/* 회원가입 페이지 */}
+        <Route path="/management/apply" element={<ApplyPage />} />
+        {/* 온라인 입점신청 페이지 */}
+        <Route path="/oauth/kakao" element={<KakaoCallbackPage />} />
+      </Routes>
       <Footer />
     </>
   );
