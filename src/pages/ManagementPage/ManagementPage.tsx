@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
+import { useAuthStore } from "../../stores/auth"; 
 import SideBar from "../../components/common/SideBar";
 import StoreList from "../../components/common/StoreList";
 import BasicInformationPage from "./BasicInformationPage";
@@ -7,6 +9,16 @@ import BusinessInformationPage from "./BusinessInformationPage";
 
 const ManagementPage: React.FC = () => {
   const [activeTab, setActiveTab] = useState("기본정보");
+  const navigate = useNavigate();
+  const { accessToken } = useAuthStore();
+
+  useEffect(() => {
+    //accessToken이 없으면 로그인 페이지로 이동
+    if (!accessToken) {
+      alert("로그인이 필요한 서비스입니다.");
+      navigate("/management/signin");
+    }
+  }, [accessToken, navigate]);
 
   useEffect(() => {
     if (location.pathname === "/") {
